@@ -325,9 +325,13 @@
 
 {
 "item": "AUTO_TRIGGER",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & IMPOSSIBLE",
-"exit_prereq": "NONE",
+"from_location": "LIBRARY_MID_UPPER",
+"entry_prereq": "SLIDING_POWDER",
+"exit_prereq": "
+    (ADV_VHARD | SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS)
+    & (SLIDE_ZIP | (EXPLOSIVES & (SLIDING_POWDER | HAMMER_ROLL_ZIP)))
+",
+// can also enter from Irisu, but it still requires slide
 }
 
 {
@@ -428,8 +432,25 @@
 
 {
 "item": "HITBOX_DOWN",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & CARROT_BOMB & IMPOSSIBLE",
+"from_location": "LIBRARY_BOTTOM",
+"entry_prereq": "
+    ( // stupid direct path
+        CARROT_SHOOTER & BOOST & MANY_AMULET_FOOD & ADV_STUPID
+        & (
+            (AIR_JUMP & (ITM_HARD | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+            | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+        )
+    ) | ( // the inteded route
+        CARROT_BOMB
+        & (
+            (AIR_JUMP & WALL_JUMP_LV2)
+            | (
+                (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL)
+                & (AIR_JUMP | WALL_JUMP_LV2)
+            )
+        )
+    )
+",
 "exit_prereq": "NONE",
 }
 
@@ -1475,9 +1496,13 @@
 
 {
 "item": "EGG_LIBRARY",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & IMPOSSIBLE",
+"from_location": "LIBRARY_BOTTOM",
+"entry_prereq": "AIR_JUMP | AIR_DASH | SLIDING_POWDER | (ADV_STUPID & AMULET_FOOD)",
 "exit_prereq": "NONE",
+"alternate_entries": {
+    // EXPLOSIVES | RIBBON | (FIRE_ORB & (SLIDING_POWDER | PIKO_HAMMER))
+    "LIBRARY_ENTRANCE": "NONE",
+},
 }
 
 {

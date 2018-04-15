@@ -623,6 +623,141 @@ PROLOGUE_TRIGGER & (
 "prereq": "EXPLOSIVES",
 }
 
+// Library
+
+{
+"edge": "GRAVEYARD_MAIN -> LIBRARY_ENTRANCE",
+"prereq": "
+    // CHAPTER_8 not IMPOSSIBLE
+    POST_GAME & IMPOSSIBLE & (
+        (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD))
+        | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+    )
+",
+}
+
+{
+"edge": "LIBRARY_ENTRANCE -> LIBRARY_BOTTOM",
+"prereq": "NONE",
+}
+
+{
+"edge": "LIBRARY_BOTTOM -> LIBRARY_ENTRANCE",
+"prereq": "
+    WALL_JUMP_LV2
+    | AIR_JUMP
+    | (AIR_DASH_LV3 & BUNNY_AMULET)
+    | (SLIDE_JUMP_BUNSTRIKE_CANCEL)
+    | (RABI_SLIPPERS & AMULET_FOOD & ADV_STUPID)
+"
+}
+
+{
+"edge": "LIBRARY_BOTTOM -> LIBRARY_MID_LOWER",
+"prereq": "
+    (( // big room to alcove
+        WHIRL_BONK
+        | (AIR_JUMP & AIR_DASH)
+        | (AIR_JUMP & RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL)
+    ) & ( // alcove up
+        AIR_JUMP
+        | AIR_DASH
+        | (RABI_SLIPPERS & ADV_STUPID & AMULET_FOOD)
+        | (WALL_JUMP & ADV_STUPID & 2_AMULET_FOOD)
+    )) // climb the shaft in the room to the right
+    | (WALL_JUMP_LV2 & AIR_JUMP & (AIR_DASH | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+",
+}
+
+// This representation does not account for the possibility of explosives at air dash
+// which is theoretically accessible with e.g. just slide and air jump
+{
+"edge": "LIBRARY_BOTTOM -> SKY_ISLAND_MAIN",
+"prereq": "
+    (SLIDE_ZIP & ADV_VHARD & EXPLOSIVES)
+    & ( // get to the ledge
+        AIR_JUMP
+        | (
+            (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL)
+            & SPEED3
+            & (WALL_JUMP_LV2 | AIR_DASH)
+        ) | (
+            (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL)
+            & WALL_JUMP_LV2 & AIR_DASH
+        )
+    )
+",
+}
+
+{
+"edge": "LIBRARY_MID_LOWER -> LIBRARY_BOTTOM",
+"prereq": "
+    (
+        (EXPLOSIVES_ENEMY & (SLIDING_POWDER | HAMMER_ROLL_ZIP))
+        | ( // RIBBON &
+            RABI_SLIPPERS
+            | AIR_JUMP
+            | AIR_DASH
+            | SLIDE_JUMP_BUNSTRIKE
+            | WHIRL_BONK
+            | (ADV_STUPID & AMULET_FOOD)
+        )
+    )
+",
+}
+
+{
+"edge": "GRAVEYARD_UPPER -> LIBRARY_MID_LOWER",
+"prereq": "POST_GAME & SLIDE_ZIP & SUNNY_BEAM & ADV_STUPID",
+}
+
+{
+"edge": "LIBRARY_MID_LOWER -> LIBRARY_MID_UPPER",
+"prereq": "8TILE_WALLJUMP",
+}
+
+{
+"edge": "LIBRARY_MID_UPPER -> LIBRARY_MID_LOWER",
+"prereq": "
+    RABI_SLIPPERS
+    | AIR_JUMP
+    | AIR_DASH
+    | SLIDE_JUMP_BUNSTRIKE
+    | WALL_JUMP
+    | ITM_HARD
+",
+}
+
+{
+"edge": "LIBRARY_MID_UPPER -> LIBRARY_IRISU",
+"prereq": "
+    SLIDE_ZIP
+    // climb the shaft
+    | (WHIRL_BONK_CANCEL & (ADV_STUPID | WALL_JUMP_LV2))
+    | (AIR_JUMP & WALL_JUMP_LV2)
+    | (SLIDE_JUMP_BUNSTRIKE_CANCEL & RABI_SLIPPERS & AIR_JUMP & WALL_JUMP)
+    | (SLIDE_JUMP_BUNSTRIKE_CANCEL & RABI_SLIPPERS & WALL_JUMP_LV2)
+    // slide bonk is a stupid possibility
+",
+}
+
+// This does not account for Irisu
+// Hopefully you don't have all TM, or you do have slide
+{
+"edge": "LIBRARY_IRISU -> LIBRARY_MID_UPPER",
+"prereq": "NONE",
+}
+
+{
+"edge": "LIBRARY_IRISU -> SKY_ISLAND_UPPER",
+"prereq": "EXPLOSIVES_ENEMY",
+}
+
+{
+"edge": "SKY_ISLAND_UPPER -> LIBRARY_IRISU",
+"prereq": "POST_GAME & RABI_SLIPPERS & AIR_JUMP & AIR_DASH & WALL_JUMP_LV2 & MANY_AMULET_FOOD & ADV_STUPID"
+}
+
 // Halloween
 
 {
