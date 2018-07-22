@@ -436,8 +436,7 @@
 "entry_prereq": "
     ( // stupid direct path
         CARROT_SHOOTER & BOOST & MANY_AMULET_FOOD & ADV_STUPID
-        & (
-            (AIR_JUMP & (ITM_HARD | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+        & ( AIR_JUMP
             | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
         )
     ) | ( // the inteded route
@@ -466,6 +465,21 @@
 "from_location": "SKY_ISLAND_MAIN",
 "entry_prereq": "EXPLOSIVES & SLIDING_POWDER",
 "exit_prereq": "EXPLOSIVES",
+"alternate_entries": {
+    "LIBRARY_BOTTOM": "
+        SLIDE_ZIP & ADV_VHARD & (
+        // get to the ledge
+            AIR_JUMP
+            | (
+                (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL)
+                & SPEED3
+                & (WALL_JUMP_LV2 | AIR_DASH)
+            ) | (
+                (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL)
+                & WALL_JUMP_LV2 & AIR_DASH
+            )
+        )"
+    }
 }
 
 {

@@ -105,6 +105,11 @@ def define_pseudo_items():
         "CHAPTER_3": "TOWN_MAIN & 4TM",
         "CHAPTER_4": "TOWN_MAIN & 7TM",
         "CHAPTER_5": "TOWN_MAIN & 10TM",
+        "CHAPTER_6": "CHAPTER_5 & VOLCANIC_MAIN",
+        "CHAPTER_7": "CHAPTER_6 & CAVE_COCOA",
+        "15TM": lambda v: count_town_members_irisu(v) == 15,
+        "OPEN_LIBRARY": "CHAPTER_7 & 15TM & ((PARK_MAIN & SLIDE_ZIP) | (SYSTEM_INTERIOR_MAIN & EXPLOSIVES))",
+        # SysInt2 probably requires other items
 
         "CONSUMABLE_USE": "ITEM_MENU & (RUMI_DONUT | RUMI_CAKE | COCOA_BOMB | GOLD_CARROT)",
         "AMULET_FOOD": lambda v : enough_amu_food(v, 1),
@@ -226,6 +231,10 @@ def get_default_areaids():
 TOWN_MEMBERS = ('TM_COCOA','TM_ASHURI','TM_RITA','TM_CICINI','TM_SAYA','TM_SYARO','TM_PANDORA','TM_NIEVE','TM_NIXIE','TM_ARURAUNE','TM_SEANA','TM_LILITH','TM_VANILLA','TM_CHOCOLATE','TM_KOTRI','TM_KEKE_BUNNY',)
 def count_town_members(variables):
     return sum(1 for tm in TOWN_MEMBERS if variables[tm])
+
+TOWN_MEMBERS_IRISU = ('TM_COCOA','TM_ASHURI','TM_RITA','TM_CICINI','TM_SAYA','TM_SYARO','TM_PANDORA','TM_NIEVE','TM_NIXIE','TM_ARURAUNE','TM_SEANA','TM_LILITH','TM_VANILLA','TM_CHOCOLATE','TM_KOTRI',)
+def count_town_members_irisu(variables):
+    return sum(1 for tm in TOWN_MEMBERS_IRISU if variables[tm])
 
 MAGIC_TYPES = ('SUNNY_BEAM','CHAOS_ROD','HEALING_STAFF','EXPLODE_SHOT','CARROT_SHOOTER')
 def count_magic_types(variables):
