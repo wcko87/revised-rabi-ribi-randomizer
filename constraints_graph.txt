@@ -686,6 +686,9 @@ PROLOGUE_TRIGGER & (
 ",
 }
 
+// this could theoretically restrict HITBOX_DOWN
+// as you can reach that room from LIBRARY_MID_LOWER with just RIBBON
+// but current constraints always allow the indirect path through LIBRARY_BOTTOM
 {
 "edge": "LIBRARY_MID_LOWER -> LIBRARY_BOTTOM",
 "prereq": "
