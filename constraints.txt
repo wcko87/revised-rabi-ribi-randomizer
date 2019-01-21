@@ -1249,9 +1249,10 @@
 
 {
 "item": "CYBER_FLOWER",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & IMPOSSIBLE",
+"from_location": "SYSINT2_END",
+"entry_prereq": "POST_GAME",
 "exit_prereq": "NONE",
+// TODO: add stupid CFE and sysint2 backwards
 }
 
 {
@@ -1811,8 +1812,8 @@
 
 {
 "item": "EGG_SYSINT2",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & IMPOSSIBLE",
+"from_location": "SYSINT2_EGG_ROOM",
+"entry_prereq": "POST_GAME",
 "exit_prereq": "NONE",
 }
 
