@@ -267,6 +267,10 @@ ITM & DARKNESS & (
 "prereq": "NONE",
 }
 
+{
+"edge": "CAVE_COCOA -> FORGOTTEN_CAVE_2",
+"prereq": "POST_GAME & ((CHAPTER_6 & TM_MIRIAM) | SLIDE_ZIP)",
+} 
 
 // Spectral
 
@@ -626,13 +630,16 @@ PROLOGUE_TRIGGER & (
 // Library
 
 {
-"edge": "GRAVEYARD_MAIN -> LIBRARY_ENTRANCE",
+"edge": "GRAVEYARD_MAIN -> LIBRARY_OUTSIDE",
 "prereq": "
-    POST_GAME & OPEN_LIBRARY & (
-        (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD))
-        | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
-    )
+    (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD))
+    | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
 ",
+}
+
+{
+"edge": "LIBRARY_OUTSIDE -> LIBRARY_ENTRANCE",
+"prereq": "POST_GAME & ((PARK_MAIN & SLIDE_ZIP) | SYSINT2_END) & ((15TM & TM_MIRIAM & TM_RUMI & CHAPTER_6) | SLIDE_ZIP)",
 }
 
 {
@@ -2068,6 +2075,11 @@ DARKNESS & (
 "prereq": "NONE",
 }
 
+{
+"edge": "VOLCANIC_MAIN -> HALL_OF_MEMORIES",
+"prereq": "POST_GAME & CHAPTER_6",
+}
+
 // .---------------------'
 // | Area 8 : Warp Destination
 // '---------------------.
@@ -2137,7 +2149,7 @@ EXPLOSIVES & (
 }
 
 // There are two columns to climb
-// Bunstrike can probably be used but I struggled with it
+// Bunstrike may be usable but I struggled with it
 {
 "edge": "SYSINT2_EGG_ROOM -> SYSINT2_END",
 "prereq": "EXPLOSIVES & (AIR_JUMP & (RABI_SLIPPERS | WALL_JUMP_LV2))",

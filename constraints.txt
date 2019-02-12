@@ -50,8 +50,8 @@
 
 {
 "item": "BLESSED",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME",
+"from_location": "FORGOTTEN_CAVE_2",
+"entry_prereq": "NONE",
 "exit_prereq": "NONE",
 }
 
@@ -350,11 +350,8 @@
 
 {
 "item": "CRISIS_BOOST",
-"from_location": "GRAVEYARD_MAIN",
-"entry_prereq": "
-    (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD))
-    | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
-",
+"from_location": "LIBRARY_OUTSIDE",
+"entry_prereq": "NONE",
 "exit_prereq": "NONE",
 }
 
@@ -1210,8 +1207,8 @@
 
 {
 "item": "CARROT_SHOOTER",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME",
+"from_location": "HALL_OF_MEMORIES",
+"entry_prereq": "NONE",
 "exit_prereq": "NONE",
 }
 
@@ -1339,8 +1336,8 @@
 
 {
 "item": "EGG_RUMI",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME",
+"from_location": "FORGOTTEN_CAVE_2",
+"entry_prereq": "NONE",
 "exit_prereq": "NONE",
 }
 
@@ -1742,15 +1739,15 @@
 
 {
 "item": "EGG_MEMORIES_SYSINT",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & EXPLOSIVES_ENEMY",
+"from_location": "HALL_OF_MEMORIES",
+"entry_prereq": "EXPLOSIVES_ENEMY",
 "exit_prereq": "NONE",
 }
 
 {
 "item": "EGG_MEMORIES_RAVINE",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "POST_GAME & EXPLOSIVES_ENEMY",
+"from_location": "HALL_OF_MEMORIES",
+"entry_prereq": "EXPLOSIVES_ENEMY",
 "exit_prereq": "NONE",
 }
 
@@ -1784,22 +1781,22 @@
 
 {
 "item": "EGG_CRESPIRIT",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "WARP_DESTINATION",
+"from_location": "WARP_DESTINATION_OUTSIDE",
+"entry_prereq": "WARP_DESTINATION & CHAPTER_4",
 "exit_prereq": "NONE",
 }
 
 {
 "item": "EGG_HOSPITAL_WALL",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "WARP_DESTINATION & POST_GAME & EXPLOSIVES",
+"from_location": "WARP_DESTINATION_HOSPITAL",
+"entry_prereq": "WARP_DESTINATION & POST_GAME & CHAPTER_5 & EXPLOSIVES",
 "exit_prereq": "NONE",
 }
 
 {
 "item": "EGG_HOSPITAL_BOX",
-"from_location": "UNREACHABLE_LOCATION",
-"entry_prereq": "WARP_DESTINATION & POST_GAME & EXPLOSIVES",
+"from_location": "WARP_DESTINATION_HOSPITAL",
+"entry_prereq": "WARP_DESTINATION & POST_GAME & CHAPTER_5 & EXPLOSIVES",
 "exit_prereq": "NONE",
 }
 

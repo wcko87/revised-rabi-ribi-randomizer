@@ -89,6 +89,8 @@ def define_pseudo_items():
         "TM_CHOCOLATE": "CHAPTER_1 & RAVINE_CHOCOLATE",
         "TM_KOTRI": "GRAVEYARD_KOTRI & VOLCANIC_MAIN",
         "TM_KEKE_BUNNY": "BOSS_KEKE_BUNNY & PLURKWOOD_MAIN & TOWN_MAIN",
+        "TM_MIRIAM": "CHAPTER_6 & HALL_OF_MEMORIES",
+        "TM_RUMI": "CHAPTER_6 & FORGOTTEN_CAVE_2",
 
         "2TM": lambda v: count_town_members(v) >= 2,
         "3TM": lambda v: count_town_members(v) >= 3,
@@ -105,11 +107,9 @@ def define_pseudo_items():
         "CHAPTER_3": "TOWN_MAIN & 4TM",
         "CHAPTER_4": "TOWN_MAIN & 7TM",
         "CHAPTER_5": "TOWN_MAIN & 10TM",
-        "CHAPTER_6": "CHAPTER_5 & VOLCANIC_MAIN",
-        "CHAPTER_7": "CHAPTER_6 & CAVE_COCOA",
+        "CHAPTER_6": "CHAPTER_5",
+        "CHAPTER_7": "TM_RUMI",
         "15TM": lambda v: count_town_members_irisu(v) == 15,
-        "OPEN_LIBRARY": "CHAPTER_7 & 15TM & ((PARK_MAIN & SLIDE_ZIP) | (SYSTEM_INTERIOR_MAIN & EXPLOSIVES))",
-        # SysInt2 probably requires other items
 
         "CONSUMABLE_USE": "ITEM_MENU & (RUMI_DONUT | RUMI_CAKE | COCOA_BOMB | GOLD_CARROT)",
         "AMULET_FOOD": lambda v : enough_amu_food(v, 1),
