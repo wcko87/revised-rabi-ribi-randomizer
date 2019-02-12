@@ -89,8 +89,8 @@ def define_pseudo_items():
         "TM_CHOCOLATE": "CHAPTER_1 & RAVINE_CHOCOLATE",
         "TM_KOTRI": "GRAVEYARD_KOTRI & VOLCANIC_MAIN",
         "TM_KEKE_BUNNY": "BOSS_KEKE_BUNNY & PLURKWOOD_MAIN & TOWN_MAIN",
-        "TM_MIRIAM": "CHAPTER_6 & HALL_OF_MEMORIES",
-        "TM_RUMI": "CHAPTER_6 & FORGOTTEN_CAVE_2",
+        "TM_MIRIAM": "HALL_OF_MEMORIES",
+        "TM_RUMI": "FORGOTTEN_CAVE_2",
 
         "2TM": lambda v: count_town_members(v) >= 2,
         "3TM": lambda v: count_town_members(v) >= 3,
