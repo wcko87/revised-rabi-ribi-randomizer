@@ -56,12 +56,12 @@ DARKNESS & (
 {
 "edge": "FOREST_UPPER_EAST_EGG_LEDGE -> FOREST_UPPER_EAST",
 "prereq": "
-    (EXPLOSIVES_ENEMY | SLIDE_ZIP)
-    & (
+    SLIDE_ZIP
+    | (EXPLOSIVES_ENEMY & (
         ADV_VHARD
-        | (ITM_HARD & AMULET_FOOD)
-        | WHIRL_BONK | RABI_SLIPPERS | BUNNY_STRIKE | AIR_JUMP | AIR_DASH
-    )
+        | (ITM_HARD & BUNNY_AMULET) // consumables do not work due to screen transition
+        | WHIRL_BONK | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE | AIR_JUMP | AIR_DASH
+    ))
 ",
 }
 
@@ -77,10 +77,11 @@ DARKNESS & (
 {
 "edge": "FOREST_UPPER_EAST_EGG_LEDGE -> FOREST_LIGHT_ORB_ROOM",
 "prereq": "
-EXPLOSIVES_ENEMY & SLIDING_POWDER & PROLOGUE_TRIGGER &
-    (ADV_VHARD
-    | (ITM_HARD & (AMULET_FOOD | RABI_SLIPPERS))
-    | WHIRL_BONK | BUNNY_STRIKE | AIR_JUMP | AIR_DASH)
+EXPLOSIVES_ENEMY & SLIDING_POWDER & PROLOGUE_TRIGGER & (
+    ADV_VHARD
+    | (ITM_HARD & BUNNY_AMULET) // consumables do not work due to screen transition
+    | WHIRL_BONK | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE | AIR_JUMP | AIR_DASH
+)
 ",
 }
 
@@ -120,7 +121,7 @@ EXPLOSIVES_ENEMY & SLIDING_POWDER & PROLOGUE_TRIGGER &
     RABI_SLIPPERS
     | AIR_JUMP
     | (SLIDING_POWDER & ADV_STUPID)
-    | BUNNY_STRIKE
+    | SLIDE_JUMP_BUNSTRIKE
     | AIR_DASH
     | WHIRL_BONK
 ) & (SLIDING_POWDER | HAMMER_ROLL_ZIP)",
@@ -1097,7 +1098,7 @@ DARKNESS & (
             SLIDING_POWDER
             | HAMMER_ROLL_ZIP
             | (ADV_VHARD & (RABI_SLIPPERS & AMULET_FOOD))
-            | (ADV_STUPID & WALL_JUMP_LV2 & 2_AMULET_FOOD)
+            | (ADV_STUPID & WALL_JUMP_LV2 & MANY_AMULET_FOOD)
         ))
 ",
 }
@@ -1139,7 +1140,7 @@ DARKNESS & (
         | SLIDING_POWDER
         | HAMMER_ROLL_ZIP
         | (ADV_VHARD & (RABI_SLIPPERS & AMULET_FOOD))
-        | (ADV_STUPID & WALL_JUMP_LV2 & 2_AMULET_FOOD)
+        | (ADV_STUPID & WALL_JUMP_LV2 & MANY_AMULET_FOOD)
 ",
 }
 
@@ -1462,7 +1463,7 @@ DARKNESS & (
             // airdash to opposite wall and wallkick off it
             | (AIR_DASH & ITM_HARD)
             // aj, rwj, qd, amulet, wk
-            | ADV_HARD
+            | (ADV_HARD & AMULET_FOOD)
             // wimpy, bounce
             | ADV_STUPID
         ))
@@ -1602,8 +1603,8 @@ DARKNESS & (
 "edge": "RIVERBANK_LOWER_LEFT -> RIVERBANK_LOWER_FOREST_ENTRANCE",
 "prereq": "
     SLIDING_POWDER
-    | AIR_JUMP
-    | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+    | (AIR_JUMP & (ITM_HARD | RABI_SLIPPERS))
+    | (AIR_DASH & RABI_SLIPPERS)
     | WHIRL_BONK
     | (RABI_SLIPPERS & ADV_STUPID) // damage boost off spider bullets
 ",
