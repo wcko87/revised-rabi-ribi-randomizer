@@ -677,7 +677,7 @@
 "item": "REGEN_UP_RAVINE",
 "from_location": "RAVINE_LOWER",
 // cramped 2 tile zip in and out
-"entry_prereq": "EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP)",
+"entry_prereq": "EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP & BUNNY_AMULET)",
 "exit_prereq": "EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP)",
 }
 
@@ -954,7 +954,7 @@
     // slide zip from bomb block slide tunnel in room to the left
     | SLIDE_ZIP
 ",
-"exit_prereq": "BUNNY_WHIRL | AIR_DASH | (CARROT_SHOOTER_ENTRY & BOOST & ADV_HARD) | DOWNDRILL_SEMISOLID_CLIP",
+"exit_prereq": "BUNNY_WHIRL | (CARROT_SHOOTER_ENTRY & BOOST & ADV_HARD) | DOWNDRILL_SEMISOLID_CLIP",
 }
 
 {
@@ -1335,7 +1335,7 @@
             | SLIDE_JUMP_BUNSTRIKE_CANCEL
             | (ITM_HARD & (WALL_JUMP_LV2 | AIR_DASH))
             | (RABI_SLIPPERS & (ADV_VHARD | (ADV_HARD & SPEED3)))
-            | (ADV_STUPID & SPEED3)
+            | (ADV_STUPID & PROLOGUE_TRIGGER & SPEED3)
         )
         ",
     },

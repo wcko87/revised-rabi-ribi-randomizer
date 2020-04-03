@@ -241,7 +241,7 @@
 "changes": [
     {
     "edge": "FOREST_EAST_ABOVE_SPRING -> FOREST_LOWER_RIVERBANK_EXIT",
-    "prereq": "EXPLOSIVES_ENEMY | BUNNY_WHIRL",
+    "prereq": "EXPLOSIVES | BUNNY_WHIRL",
     }
     {
     "edge": "FOREST_LOWER_RIVERBANK_EXIT -> FOREST_EAST_ABOVE_SPRING",
@@ -588,6 +588,10 @@
     {
     "edge": "RIVERBANK_LOWER_FOREST_ENTRANCE -> RIVERBANK_LOWER_LEFT",
     "prereq": "IMPOSSIBLE",
+    }
+    {
+    "edge": "RIVERBANK_MAIN_LEVEL1 -> RIVERBANK_LOWER_FOREST_ENTRANCE",
+    "prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP",
     }
 ]}
 
@@ -1362,7 +1366,7 @@
 "changes": [
     {
     "edge": "RIVERBANK_MAIN_LEVEL1 -> RIVERBANK_LOWER_LEFT",
-    "prereq": "SEMISOLID_CLIP",
+    "prereq": "DOWNDRILL_SEMISOLID_CLIP | EXPLOSIVES | SLIDING_POWDER",
     }
 ]}
 
@@ -1461,7 +1465,7 @@
 "changes": [
     {
     "edge": "RIVERBANK_MAIN_LEVEL1 -> RIVERBANK_LOWER_LEFT",
-    "prereq": "SEMISOLID_CLIP | FIRE_ORB",
+    "prereq": "DOWNDRILL_SEMISOLID_CLIP | FIRE_ORB | EXPLOSIVES | SLIDING_POWDER",
     }
 ]}
 
@@ -1511,7 +1515,7 @@
 "changes": [
     {
     "edge": "RIVERBANK_MAIN_LEVEL1 -> RIVERBANK_LOWER_LEFT",
-    "prereq": "SEMISOLID_CLIP | PIKO_HAMMER",
+    "prereq": "PIKO_HAMMER | EXPLOSIVES | SLIDING_POWDER",
     }
 ]}
 
