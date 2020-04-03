@@ -80,11 +80,11 @@ def define_pseudo_items():
         "TM_SAYA": "EVERNIGHT_SAYA & EVERNIGHT_EAST_OF_WARP",
         "TM_SYARO": "SYSTEM_INTERIOR_MAIN",
         "TM_PANDORA": "PYRAMID_MAIN",
-        "TM_NIEVE": "PALACE_LEVEL_5 & ICY_SUMMIT_MAIN",
-        "TM_NIXIE": "PALACE_LEVEL_5 & ICY_SUMMIT_MAIN",
+        "TM_NIEVE": "PALACE_LEVEL_5 & ICY_SUMMIT_NIXIE",
+        "TM_NIXIE": "PALACE_LEVEL_5 & ICY_SUMMIT_NIXIE",
         "TM_ARURAUNE": "FOREST_NIGHT_WEST",
         "TM_SEANA": "TM_VANILLA & TM_CHOCOLATE & TM_CICINI & TM_SYARO & TM_NIEVE & TM_NIXIE & AQUARIUM_EAST & PARK_TOWN_ENTRANCE",
-        "TM_LILITH": "SKY_ISLAND_MAIN",
+        "TM_LILITH": "SKY_ISLAND_MAIN & TM_CICINI",
         "TM_VANILLA": "SKY_BRIDGE_EAST_LOWER",
         "TM_CHOCOLATE": "CHAPTER_1 & RAVINE_CHOCOLATE",
         "TM_KOTRI": "GRAVEYARD_KOTRI & VOLCANIC_MAIN",
@@ -129,7 +129,7 @@ def define_alternate_conditions(settings, variable_names_set, default_expression
         "RUMI_CAKE": "TOWN_SHOP",
         #"COCOA_BOMB": "TM_COCOA & TOWN_MAIN & 3TM", # Discounting this because you can't buy cocoa bombs from cocoa in IMP
     }
-    if not settings.shuffle_map_transitions:
+    if not settings.shuffle_gift_items:
         d.update({
             "SPEED_BOOST": "TOWN_SHOP",
             "BUNNY_STRIKE": "SLIDING_POWDER & TOWN_SHOP",
