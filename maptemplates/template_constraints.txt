@@ -71,7 +71,7 @@
 "changes": [
     {
     "edge": "AQUARIUM_BOMB_WALLED_AREA -> AQUARIUM_BEACH_ENTRANCE",
-    "prereq": "UNDERWATER & FIRE_ORB",
+    "prereq": "UNDERWATER & (FIRE_ORB | (ADV_STUPID & SLIDE_ZIP))",
     }
     {
     "edge": "AQUARIUM_BEACH_ENTRANCE -> AQUARIUM_BOMB_WALLED_AREA",
@@ -99,7 +99,7 @@
 "changes": [
     {
     "edge": "AQUARIUM_BOMB_WALLED_AREA -> AQUARIUM_BEACH_ENTRANCE",
-    "prereq": "UNDERWATER & (BUNNY_WHIRL | EXPLOSIVES)",
+    "prereq": "UNDERWATER & (BUNNY_WHIRL | EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP))",
     }
     {
     "edge": "AQUARIUM_BEACH_ENTRANCE -> AQUARIUM_BOMB_WALLED_AREA",
@@ -810,7 +810,7 @@
     }
     {
     "edge": "FOREST_NIGHT_WEST -> FOREST_NIGHT_NORTH_EAST",
-    "prereq": "EXPLOSIVES & (SLIDING_POWDER | HAMMER_ROLL_ZIP)",
+    "prereq": "(EXPLOSIVES & (SLIDING_POWDER | HAMMER_ROLL_ZIP)) | (ADV_VHARD & SLIDE_ZIP)",
     }
 ]}
 

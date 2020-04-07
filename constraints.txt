@@ -255,8 +255,11 @@
 {
 "item": "MP_UP_NORTHEAST_FOREST",
 "from_location": "FOREST_UPPER_EAST",
-"entry_prereq": "EXPLOSIVES_ENEMY & SLIDING_POWDER",
-"exit_prereq": "SLIDING_POWDER",
+"entry_prereq": "
+    (EXPLOSIVES_ENEMY & SLIDING_POWDER)
+    | (ADV_STUPID & RABI_SLIPPERS & SLIDE_ZIP) // 5-tile zip from missing collision spot
+    ",
+"exit_prereq": "SLIDING_POWDER & (CARROT_SHOOTER_ENTRY | EXPLOSIVES)",
 }
 
 {
@@ -396,6 +399,10 @@
 "from_location": "PYRAMID_MAIN",
 "entry_prereq": "EXPLOSIVES",
 "exit_prereq": "NONE",
+
+"alternate_exits": {
+    "PYRAMID_LOWER": "SLIDE_ZIP & EXPLOSIVES & ADV_VHARD"
+    },
 }
 
 // entry_prereq was changed to NONE as the bunny can blow it up for you.
@@ -564,8 +571,12 @@
 {
 "item": "MP_UP_SKY_BRIDGE",
 "from_location": "SKY_BRIDGE_MAIN",
-"entry_prereq": "EXPLOSIVES & SLIDING_POWDER",
-"exit_prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP",
+"entry_prereq": "
+    (EXPLOSIVES & SLIDING_POWDER)
+    | (ADV_VHARD & SLIDE_ZIP & RABI_SLIPPERS) // 5-tile zip
+    | (ADV_STUPID & SLIDE_ZIP & (WHIRL_BONK_CANCEL | SLIDE_JUMP_BUNSTRIKE_CANCEL | AIR_JUMP | WALL_JUMP_LV2)) // 2-tile zip
+    ",
+"exit_prereq": "(EXPLOSIVES & SLIDING_POWDER) | SLIDE_ZIP | HAMMER_ROLL_ZIP",
 }
 
 {

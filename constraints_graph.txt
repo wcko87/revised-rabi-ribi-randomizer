@@ -44,7 +44,7 @@
 "prereq": "
 DARKNESS & (
     (EXPLOSIVES & (SLIDING_POWDER | HAMMER_ROLL_ZIP) & PROLOGUE_TRIGGER)
-    | (ADV_VHARD & EXPLOSIVES_ENEMY & SLIDE_ZIP)
+    | (ADV_VHARD & SLIDE_ZIP)
 )",
 }
 
@@ -1246,6 +1246,11 @@ DARKNESS & (
 }
 
 {
+"edge": "ICY_SUMMIT_MAIN -> SNOWLAND_EAST",
+"prereq": "ADV_STUPID & PIKO_HAMMER_LEVELED & SLIDE_ZIP", // down drill for get slide into missing collision tunnel, slide tunnel zip
+}
+
+{
 "edge": "ICY_SUMMIT_MAIN -> ICY_SUMMIT_UPPER",
 "prereq": "NONE",
 }
@@ -1336,6 +1341,11 @@ DARKNESS & (
 {
 "edge": "PALACE_LEVEL_3 -> PALACE_LEVEL_4",
 "prereq": "NONE",
+}
+
+{
+"edge": "PALACE_LEVEL_3 -> SNOWLAND_CHRISTMAS_TREE",
+"prereq": "ADV_STUPID & RABI_SLIPPERS & SLIDE_ZIP", // burnout 4-tile zip, 4-tile zip, quick drop
 }
 
 {
@@ -1473,7 +1483,7 @@ DARKNESS & (
 
 {
 "edge": "AQUARIUM_EAST -> AQUARIUM_BOMB_WALLED_AREA",
-"prereq": "EXPLOSIVES | (WATER_ORB & HAMMER_ROLL_ZIP)",
+"prereq": "EXPLOSIVES | (WATER_ORB & HAMMER_ROLL_ZIP) | (WATER_ORB & SLIDE_ZIP & ADV_STUPID)",
 }
 
 {
@@ -1503,7 +1513,7 @@ DARKNESS & (
 
 {
 "edge": "AQUARIUM_BOMB_WALLED_AREA -> AQUARIUM_BEACH_ENTRANCE",
-"prereq": "EXPLOSIVES",
+"prereq": "EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP)",
 }
 
 {
@@ -1918,7 +1928,7 @@ DARKNESS & (
 
 {
 "edge": "LAB_EAST -> LAB_EAST_PACK_UP_ROOM",
-"prereq": "EXPLOSIVES",
+"prereq": "EXPLOSIVES | (ADV_VHARD & RABI_SLIPPERS & SLIDE_ZIP)",
 }
 
 {
