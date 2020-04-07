@@ -117,11 +117,11 @@
 "changes": [
     {
     "edge": "SNOWLAND_WEST -> AQUARIUM_TOP_ENTRANCE",
-    "prereq": "current & PIKO_HAMMER",
+    "prereq": "current & (PIKO_HAMMER | EXPLOSIVES_ENEMY)",
     }
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> SNOWLAND_WEST",
-    "prereq": "PIKO_HAMMER",
+    "prereq": "(PIKO_HAMMER | EXPLOSIVES)",
     }
 ]}
 
@@ -937,7 +937,7 @@
     "edge": "RAVINE_LOWER -> RAVINE_MANA_SURGE",
     "prereq": "current & (AIR_DASH_LV3 |
             (ADV_HARD & (
-                (AIR_JUMP & (WALL_JUMP_LV2 | HAMMER_ROLL | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+                (AIR_JUMP & (WALL_JUMP_LV2 | HAMMER_ROLL | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL | (SLIDING_POWDER & V_HARD)))
                 | (WHIRL_BONK_CANCEL & (V_HARD | WALL_JUMP_LV2))
             ))
         )",
@@ -1019,7 +1019,12 @@
     {
     "edge": "RAVINE_LOWER -> RAVINE_MANA_SURGE",
     "prereq": "current & (PIKO_HAMMER | EXPLOSIVES |
-            (ADV_HARD & AIR_JUMP & (WALL_JUMP_LV2 | RABI_SLIPPERS))
+            (ADV_HARD & AIR_JUMP & (WALL_JUMP_LV2 | RABI_SLIPPERS | (SLIDING_POWDER & V_HARD)))
+            // going up the 3-wide chasm
+            | (ADV_VHARD & (
+                (RABI_SLIPPERS & WALL_JUMP & (SLIDING_POWDER | SPEED5 | (SPEED2 & STUPID)))
+                | (ADV_STUPID & WALL_JUMP_LV2 & BUNNY_AMULET_LV2 & (SLIDING_POWDER | SPEED5))
+            ))
         )",
     }
 ]}
@@ -1047,8 +1052,13 @@
     "edge": "RAVINE_LOWER -> RAVINE_MANA_SURGE",
     "prereq": "current & (FIRE_ORB |
             (ADV_HARD & (
-                (AIR_JUMP & (WALL_JUMP_LV2 | HAMMER_ROLL | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+                (AIR_JUMP & (WALL_JUMP_LV2 | HAMMER_ROLL | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL | (SLIDING_POWDER & V_HARD)))
                 | (WHIRL_BONK_CANCEL & (V_HARD | WALL_JUMP_LV2))
+            ))
+            // going up the 3-wide chasm
+            | (ADV_VHARD & (
+                (RABI_SLIPPERS & WALL_JUMP & (SLIDING_POWDER | SPEED5 | (SPEED2 & STUPID)))
+                | (ADV_STUPID & WALL_JUMP_LV2 & BUNNY_AMULET_LV2 & (SLIDING_POWDER | SPEED5))
             ))
         )",
     }
@@ -1060,7 +1070,7 @@
 "changes": [
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> AQUARIUM_MID",
-    "prereq": "IMPOSSIBLE",
+    "prereq": "(EXPLOSIVES_ENEMY & ((WATER_ORB & HAMMER_ROLL_ZIP) | SLIDING_POWDER)) | (ADV_STUPID & WATER_ORB & SLIDE_ZIP)",
     }
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> AQUARIUM_WEST",
@@ -1074,12 +1084,16 @@
 "changes": [
     {
     "edge": "AQUARIUM_MID -> AQUARIUM_EAST",
-    "prereq": "IMPOSSIBLE",
+    "prereq": "
+        EXPLOSIVES_ENEMY & (
+            (WATER_ORB & HAMMER_ROLL_ZIP)
+            | (FIRE_ORB & SLIDING_POWDER)
+       )",
     }
 
     {
     "edge": "AQUARIUM_EAST -> AQUARIUM_MID",
-    "prereq": "IMPOSSIBLE",
+    "prereq": "EXPLOSIVES & FIRE_ORB & SLIDING_POWDER",
     }
 ]}
 
@@ -1157,7 +1171,7 @@
 "changes": [
     {
     "edge": "AQUARIUM_MID -> AQUARIUM_EAST",
-    "prereq": "PIKO_HAMMER | EXPLOSIVES",
+    "prereq": "PIKO_HAMMER | EXPLOSIVES | (EXPLOSIVES_ENEMY & FIRE_ORB & SLIDING_POWDER)",
     }
 
     {
@@ -1172,7 +1186,7 @@
 "changes": [
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> AQUARIUM_MID",
-    "prereq": "DOWNDRILL_SEMISOLID_CLIP",
+    "prereq": "DOWNDRILL_SEMISOLID_CLIP | (EXPLOSIVES_ENEMY & SLIDING_POWDER) | (ADV_STUPID & WATER_ORB & SLIDE_ZIP)",
     }
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> AQUARIUM_WEST",
@@ -1345,8 +1359,8 @@
     "edge": "RIVERBANK_LOWER_RIGHT -> RIVERBANK_LOWER_MID",
     "prereq": "
         (
-        (CARROT_SHOOTER & BOOST) & (
-            SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS
+        CARROT_SHOOTER & (
+            SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS | WHIRL_BONK
             | (ITM & (WATER_ORB | SPEED2))
             )
         ) | (
@@ -1380,6 +1394,8 @@
         AIR_JUMP
         | WHIRL_BONK
         | (ADV_HARD & WALL_JUMP_LV2) // turn off rabi slippers and do a 4-tile corner.
+        | (ADV_VHARD & RABI_SLIPPERS & WALL_JUMP & (SPEED1 | STUPID))
+        | (ADV_STUPID & SLIDING_POWDER & WALL_JUMP)
     )",
     }
 ]}
@@ -1390,7 +1406,13 @@
 "changes": [
     {
     "edge": "RIVERBANK_LEVEL2 -> RIVERBANK_LEVEL3",
-    "prereq": "AIR_JUMP | WALL_JUMP_LV2 | WHIRL_BONK_CANCEL | (ADV_STUPID & WHIRL_BONK)",
+    "prereq": "AIR_JUMP | WALL_JUMP_LV2 | WHIRL_BONK_CANCEL | (ITM_HARD & HAMMER_ROLL)
+        | (ADV_HARD & RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL & WALL_JUMP)
+        | (ADV_STUPID & (
+            WHIRL_BONK // whirl bonk off falling stone
+            // do slide and attack in same frame for cancel sliding motion, then jump and bonk off falling stone
+            | (SLIDING_POWDER & (PIKO_HAMMER | CARROT_BOMB))
+        ))",
     }
 ]}
 
@@ -1452,7 +1474,7 @@
     "edge": "RIVERBANK_LOWER_RIGHT -> RIVERBANK_LOWER_MID",
     "prereq": "
         FIRE_ORB & (
-            SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS
+            SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS | WHIRL_BONK
             | (ITM & (WATER_ORB | SPEED2))
             )
         ",
@@ -1475,7 +1497,12 @@
 "changes": [
     {
     "edge": "RIVERBANK_LOWER_RIGHT -> RIVERBANK_LOWER_HEALTH_UP_ROOM",
-    "prereq": "AIR_JUMP | (WALL_JUMP_LV2 & (ITM_HARD | RABI_SLIPPERS))",
+    "prereq": "
+        AIR_JUMP | (WALL_JUMP_LV2 & (ITM_HARD | RABI_SLIPPERS))
+        | (ADV_HARD & RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL & WALL_JUMP)
+        | (ITM_HARD & HAMMER_ROLL) | WHIRL_BONK_CANCEL | (ADV_STUPID & WHIRL_BONK)
+        | (ADV_VHARD & SLIDING_POWDER & (RABI_SLIPPERS | STUPID))
+        ",
     }
 ]}
 
@@ -1501,8 +1528,8 @@
     {
     "edge": "RIVERBANK_LOWER_RIGHT -> RIVERBANK_LOWER_MID",
     "prereq": "
-        (PIKO_HAMMER | EXPLOSIVES) & (
-            SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS
+        (PIKO_HAMMER | EXPLOSIVES | (ADV_HARD & CARROT_SHOOTER & CHARGE_RING)) & (
+            SLIDING_POWDER | AIR_JUMP | AIR_DASH | RABI_SLIPPERS | WHIRL_BONK
             | (ITM & (WATER_ORB | SPEED2))
             )
         ",
@@ -1583,11 +1610,11 @@
 "changes": [
     {
     "edge": "SNOWLAND_MID -> SNOWLAND_RITA",
-    "prereq": "PIKO_HAMMER | EXPLOSIVES",
+    "prereq": "PIKO_HAMMER | EXPLOSIVES_ENEMY",
     }
     {
     "edge": "SNOWLAND_RITA -> SNOWLAND_MID",
-    "prereq": "PIKO_HAMMER | EXPLOSIVES",
+    "prereq": "PIKO_HAMMER | (ITM & CARROT_SHOOTER) | EXPLOSIVES",
     }
 ]}
 
