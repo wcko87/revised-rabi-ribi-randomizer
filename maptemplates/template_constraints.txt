@@ -1332,6 +1332,10 @@
         (WHIRL_BONK_CANCEL | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL & AIR_JUMP))
     )
     | (ADV_VHARD & SLIDING_POWDER & AIR_JUMP) // slide bonk
+    | (ADV_HARD & (
+        (AIR_JUMP & WHIRL_BONK)
+        | (RABI_SLIPPERS & HAMMER_ROLL)
+    ))
     ",
     }
 ]}

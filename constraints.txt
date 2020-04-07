@@ -110,9 +110,11 @@
 "item": "REGEN_UP_MID_FOREST",
 "from_location": "FOREST_START",
 "entry_prereq": "
-    (ITM_HARD & (WALL_JUMP_LV2 | WHIRL_BONK_CANCEL))
-    | AIR_JUMP
-    | ((RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL) & WALL_JUMP_LV2)
+    AIR_JUMP
+    | ((RABI_SLIPPERS | ITM_HARD) & WALL_JUMP_LV2)
+    | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL & (SPEED1 | WALL_JUMP | ITM_VHARD))
+    | (ADV_HARD & (WHIRL_BONK_CANCEL | HAMMER_ROLL))
+    | (ADV_STUPID & (WHIRL_BONK | SLIDING_POWDER)) // bonk off jumping uprprc
 ",
 "exit_prereq": "NONE",
 }
@@ -751,6 +753,8 @@
         | WHIRL_BONK
         | AIR_DASH
         | AIR_JUMP
+        // slide bonk
+        | (ADV_HARD & SLIDING_POWDER)
         // rwj left wall, wallkick overhang
         | (RABI_SLIPPERS & ((ITM_HARD & SPEED2) | ADV_STUPID))
         // wimpy right corner, bounce left wall, amulet (similar to spike barrier)
@@ -797,6 +801,7 @@
         WHIRL_BONK
         | (AIR_DASH & HARD)
         | SLIDE_JUMP_BUNSTRIKE
+        | (ADV_VHARD & SLIDING_POWDER) // slide bonk
         | (RABI_SLIPPERS & (
             SLIDING_POWDER
             | (SPEED1 & ITM_HARD)
@@ -837,7 +842,12 @@
 {
 "item": "MP_UP_ICY_SUMMIT",
 "from_location": "ICY_SUMMIT_MAIN",
-"entry_prereq": "ADV_STUPID | RABI_SLIPPERS | AIR_JUMP | WALL_JUMP | WHIRL_BONK | (SPEED1 & ITM_VHARD)",
+"entry_prereq": "
+    ADV_STUPID | RABI_SLIPPERS | AIR_JUMP | WHIRL_BONK
+    | (ITM_VHARD & SPEED1)
+    | (ITM_HARD & (AIR_DASH | WALL_JUMP | SPEED3)) 
+    | (ADV_HARD & SLIDING_POWDER)
+    ",
 "exit_prereq": "NONE",
 
 "alternate_entries": {
@@ -1044,9 +1054,9 @@
     & (
         (AIR_JUMP & (RABI_SLIPPERS | AIR_DASH | ITM_HARD))
         | WHIRL_BONK
-        | (RABI_SLIPPERS & AIR_DASH)
-        | (BUNNY_STRIKE & AIR_DASH & ITM_HARD)
-        | (ADV_STUPID & 3_AMULET_FOOD) // wimpy, bounce, spam amulet (same as spike barrier jump)
+        | ((RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL | ADV_VHARD) & AIR_DASH)
+        | ADV_STUPID // slide bonk, buffered wimpy, bounce
+        //| (ADV_STUPID & 3_AMULET_FOOD) // wimpy, bounce, spam amulet (same as spike barrier jump)
     )
 ",
 "exit_prereq": "NONE",
@@ -1137,7 +1147,14 @@
 "item": "ATK_UP_EVERNIGHT",
 "from_location": "EVERNIGHT_CORRIDOR_BELOW_SAYA",
 "entry_prereq": "NONE",
-"exit_prereq": "NONE",
+"exit_prereq": "AIR_JUMP | WALL_JUMP_LV2",
+
+"alternate_entries": {
+    "EVERNIGHT_EAST_OF_WARP": "ADV_STUPID & WHIRL_BONK",
+},
+"alternate_exits": {
+    "EVERNIGHT_EAST_OF_WARP": "NONE",
+},
 }
 
 {
@@ -1516,7 +1533,7 @@
 {
 "item": "EGG_PYRAMID_BEACH",
 "from_location": "BEACH_MAIN",
-"entry_prereq": "(ADV_STUPID & AMULET_FOOD) | EXPLOSIVES | AIR_JUMP | AIR_DASH",
+"entry_prereq": "(ADV_STUPID & (AMULET_FOOD | WHIRL_BONK)) | EXPLOSIVES | AIR_JUMP | AIR_DASH",
 "exit_prereq": "NONE",
 }
 
@@ -1656,7 +1673,8 @@
 "entry_prereq": "
     WHIRL_BONK | AIR_JUMP | AIR_DASH | SLIDE_JUMP_BUNSTRIKE | (ADV_HARD & SLIDING_POWDER)
     | (ADV_VHARD & RABI_SLIPPERS & AMULET_FOOD)
-    | (ADV_STUPID & WALL_JUMP_LV2 & 2_AMULET_FOOD)
+    // 0% method : walljump, damage boost off red uprprc bullets, wallkick, amulet
+    | (ADV_STUPID & 2_AMULET_FOOD)
     ",
 "exit_prereq": "NONE",
 }
