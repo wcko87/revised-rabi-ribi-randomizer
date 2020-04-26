@@ -591,7 +591,7 @@
 {
 "item": "MP_UP_PARK",
 "from_location": "PARK_MAIN",
-"entry_prereq": "RABI_SLIPPERS | SLIDING_POWDER | AIR_DASH | AIR_JUMP | (ITM & SPEED2) | (ADV_VHARD & AMULET_FOOD)",
+"entry_prereq": "RABI_SLIPPERS | SLIDING_POWDER | AIR_DASH | AIR_JUMP | (ITM & SPEED2) | (ADV_VHARD & SPEED1) | (ADV_VHARD & AMULET_FOOD)",
 "exit_prereq": "NONE",
 }
 
@@ -1390,7 +1390,14 @@
     AIR_JUMP
     | AIR_DASH
     | SLIDE_JUMP_BUNSTRIKE
-    | (SLIDING_POWDER & (RABI_SLIPPERS | (ADV_VHARD & SPEED5) | (ADV_STUPID & 2_AMULET_FOOD)))
+    | (RABI_SLIPPERS & ((ITM & SPEED5) | (ADV_HARD & SPEED3) | SLIDING_POWDER))
+    // quickdrop, buffered slide jump
+    | (ADV_VHARD & SLIDING_POWDER)
+    // stupid hover launch tricks
+    | (ADV_STUPID & BUNNY_AMULET & (
+        (RABI_SLIPPERS & (SPEED2 | 2_AMULET_FOOD))
+        | (SPEED2 & 2_AMULET_FOOD) | 3_AMULET_FOOD
+    ))
 ",
 "exit_prereq": "NONE",
 }
@@ -1774,7 +1781,11 @@
     (ADV_STUPID & AMULET_FOOD) |
     WHIRL_BONK |
     (SLIDING_POWDER & (RABI_SLIPPERS | WALL_JUMP | ITM_HARD)) |
-    (RABI_SLIPPERS & WALL_JUMP)
+    (RABI_SLIPPERS & (WALL_JUMP | ADV_STUPID)) |
+    (ADV_VHARD &
+        (WALL_JUMP & SPEED1) | // quickdrop jump
+        WALL_JUMP_LV2 // buffered wimpy launch
+    )
 ",
 "exit_prereq": "NONE",
 }

@@ -653,9 +653,15 @@
             AIR_JUMP
             | BUNNY_STRIKE
             | AIR_DASH
-            | (BUNNY_WHIRL & ITM_HARD)
+            | WHIRL_BONK
             | (SLIDING_POWDER & (ITM_HARD | RABI_SLIPPERS))
-            | (ADV_STUPID & SPEED5)
+            // stupid hover launch tricks
+            | (ADV_STUPID & BUNNY_AMULET & (
+                (RABI_SLIPPERS & SPEED2)
+                | (RABI_SLIPPERS & 2_AMULET_FOOD)
+                | (SPEED2 & 2_AMULET_FOOD)
+                | 3_AMULET_FOOD
+            ))
         )
     ",
     }
@@ -766,10 +772,12 @@
 "changes": [
     {
     "edge": "FOREST_COCOA_ROOM -> FOREST_START",
-    "prereq": "FIRE_ORB | (
-        SLIDING_POWDER | AIR_JUMP | AIR_DASH | WHIRL_BONK
-        | (SPEED5 & ADV_HARD)
-        | (ADV_STUPID & RABI_SLIPPERS & WALL_JUMP_LV2 & 2_AMULET_FOOD)
+    "prereq": "
+        FIRE_ORB | (
+            SLIDING_POWDER | AIR_JUMP | AIR_DASH | WHIRL_BONK
+            | (SPEED5 & ADV_HARD)
+            | (SPEED3 & ADV_VHARD) // quick drop jump
+            | (ADV_STUPID & BUNNY_AMULET & 2_AMULET_FOOD) //  qd jump, qd, amulet, wk, velocity cancel
         )
         ",
     }
@@ -781,10 +789,12 @@
 "changes": [
     {
     "edge": "FOREST_COCOA_ROOM -> FOREST_START",
-    "prereq": "PIKO_HAMMER | EXPLOSIVES | (
-        SLIDING_POWDER | AIR_JUMP | AIR_DASH | WHIRL_BONK
-        | (SPEED5 & ADV_HARD)
-        | (ADV_STUPID & RABI_SLIPPERS & WALL_JUMP_LV2 & 2_AMULET_FOOD)
+    "prereq": "
+        PIKO_HAMMER | (
+            SLIDING_POWDER | AIR_JUMP
+            | (SPEED5 & ADV_HARD)
+            | (SPEED3 & ADV_VHARD) // quick drop jump
+            | (ADV_STUPID & BUNNY_AMULET & 2_AMULET_FOOD) //  qd jump, qd, amulet, wk, velocity cancel
         )
         ",
     }
@@ -1448,9 +1458,15 @@
         AIR_JUMP
         | BUNNY_STRIKE
         | AIR_DASH
-        | (BUNNY_WHIRL & ITM_HARD)
+        | WHIRL_BONK
         | (SLIDING_POWDER & (ITM_HARD | RABI_SLIPPERS))
-        | (ADV_STUPID & SPEED5)
+        // stupid hover launch tricks
+        | (ADV_STUPID & BUNNY_AMULET & (
+            (RABI_SLIPPERS & SPEED2)
+            | (RABI_SLIPPERS & 2_AMULET_FOOD)
+            | (SPEED2 & 2_AMULET_FOOD)
+            | 3_AMULET_FOOD
+        ))
     ",
     }
 ]}
