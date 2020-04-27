@@ -217,9 +217,13 @@
     | (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD))
     | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
     // 4 tile corner rwj, airdash, wallkick, amulet cancel
-    | (ADV_VHARD & AIR_DASH_LV3 & BUNNY_AMULET)
+    | (ADV_VHARD & AIR_DASH_LV3 & AMULET_FOOD)
     // slide bonk off big bunny
-    | (ADV_STUPID & SLIDING_POWDER & RABI_SLIPPERS)",
+    | (ADV_STUPID & SLIDING_POWDER & RABI_SLIPPERS)
+    // amuclimbs
+    | (ADV_VHARD & WALL_JUMP & BUNNY_AMULET & AIR_DASH)
+    | (ADV_STUPID & WALL_JUMP_LV2 & MANY_AMULET_FOOD)
+    ",
 "exit_prereq": "NONE",
 }
 
@@ -364,6 +368,11 @@
 "entry_prereq": "
     (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD))
     | (AIR_DASH & (RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+    | (ADV_STUPID & MANY_AMULET_FOOD & (
+        WALL_JUMP_LV2
+        | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL)
+    ))
+    | (ADV_STUPID & WALL_JUMP & AIR_DASH & BUNNY_AMULET_LV2)
 ",
 "exit_prereq": "NONE",
 }
@@ -802,10 +811,10 @@
         | (AIR_DASH & HARD)
         | SLIDE_JUMP_BUNSTRIKE
         | (ADV_VHARD & SLIDING_POWDER) // slide bonk
+        | ADV_STUPID // amulet climb, need 2 items at least
         | (RABI_SLIPPERS & (
             SLIDING_POWDER
             | (SPEED1 & ITM_HARD)
-            | (AMULET_FOOD & ADV_STUPID)
         ))
     ))",
 "exit_prereq": "NONE",
@@ -1165,6 +1174,7 @@
     | AIR_DASH
     | (RABI_SLIPPERS & ADV_VHARD)
     | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE)
+    | (ADV_STUPID & 2_AMULET_FOOD & (SLIDE_JUMP_BUNSTRIKE_CANCEL | WALL_JUMP_LV2))
 )",
 "exit_prereq": "NONE",
 
@@ -1261,7 +1271,14 @@
 "item": "AIR_JUMP",
 "from_location": "SYSTEM_INTERIOR_MAIN",
 "entry_prereq": "NONE",
-"exit_prereq": "AIR_JUMP | AIR_DASH | BUNNY_STRIKE | DOWNDRILL_SEMISOLID_CLIP",
+"exit_prereq":"
+    AIR_JUMP
+    | AIR_DASH
+    | SLIDE_JUMP_BUNSTRIKE
+    | DOWNDRILL_SEMISOLID_CLIP
+    | (ADV_VHARD & RABI_SLIPPERS) // need bunny amulet
+    | (ADV_STUPID & WALL_JUMP_LV2) // need bunny amulet lv2
+    ",
 }
 
 {
@@ -1568,6 +1585,7 @@
         (RABI_SLIPPERS & AMULET_FOOD)
         | SLIDING_POWDER // slide bonk off stone
     ))
+    | (ADV_STUPID & WALL_JUMP & BUNNY_AMULET & 2_AMULET_FOOD)
 ",
 "exit_prereq": "NONE",
 }

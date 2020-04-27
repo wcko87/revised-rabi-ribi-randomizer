@@ -317,6 +317,8 @@
         AIR_JUMP
         | AIR_DASH
         | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE)
+        | (ADV_VHARD & RABI_SLIPPERS & AMULET_FOOD)
+        | (ADV_STUPID & BUNNY_AMULET & 2_AMULET_FOOD & (WALL_JUMP | SLIDE_JUMP_BUNSTRIKE_CANCEL))
     )",
     }
 ]}
@@ -369,6 +371,8 @@
         AIR_JUMP
         | AIR_DASH
         | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE)
+        | (ADV_VHARD & RABI_SLIPPERS & AMULET_FOOD)
+        | (ADV_STUPID & BUNNY_AMULET & 2_AMULET_FOOD & (WALL_JUMP | SLIDE_JUMP_BUNSTRIKE_CANCEL))
     )",
     }
 ]}
@@ -747,7 +751,11 @@
 "changes": [
     {
     "edge": "LAB_EAST -> LAB_COMPUTER_ROOM",
-    "prereq": "AIR_JUMP | AIR_DASH | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE)",
+    "prereq": "
+        AIR_JUMP | AIR_DASH | (RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE)
+        | (ADV_VHARD & RABI_SLIPPERS) // need bunny amulet
+        | (ADV_STUPID & 2_AMULET_FOOD & (WALL_JUMP | SLIDE_JUMP_BUNSTRIKE_CANCEL))
+        ",
     }
 ]}
 
