@@ -16,6 +16,8 @@ DIFFICULTY_CONFIGS = [
         weight=0.8,
         config_flags = {
             "ZIP_REQUIRED": False,
+            "BONK_ZIP_REQUIRED": False,
+            "BUNSTRIKE_ZIP_REQUIRED": False,
             "SEMISOLID_CLIPS_REQUIRED": False,
             "BLOCK_CLIPS_REQUIRED": False,
             "POST_GAME_ALLOWED": False,
@@ -40,6 +42,8 @@ DIFFICULTY_CONFIGS = [
         weight=1.0,
         config_flags = {
             "ZIP_REQUIRED": False,
+            "BONK_ZIP_REQUIRED": False,
+            "BUNSTRIKE_ZIP_REQUIRED": False,
             "SEMISOLID_CLIPS_REQUIRED": False,
             "BLOCK_CLIPS_REQUIRED": False,
             "POST_GAME_ALLOWED": False,
@@ -64,6 +68,8 @@ DIFFICULTY_CONFIGS = [
         weight=1.0,
         config_flags = {
             "ZIP_REQUIRED": False,
+            "BONK_ZIP_REQUIRED": False,
+            "BUNSTRIKE_ZIP_REQUIRED": False,
             "SEMISOLID_CLIPS_REQUIRED": False,
             "BLOCK_CLIPS_REQUIRED": True,
             "POST_GAME_ALLOWED": False,
@@ -88,6 +94,8 @@ DIFFICULTY_CONFIGS = [
         weight=1.0,
         config_flags = {
             "ZIP_REQUIRED": True,
+            "BONK_ZIP_REQUIRED": True,
+            "BUNSTRIKE_ZIP_REQUIRED": False,
             "SEMISOLID_CLIPS_REQUIRED": True,
             "BLOCK_CLIPS_REQUIRED": True,
             "POST_GAME_ALLOWED": False,
@@ -112,6 +120,8 @@ DIFFICULTY_CONFIGS = [
         weight=1.0,
         config_flags = {
             "ZIP_REQUIRED": True,
+            "BONK_ZIP_REQUIRED": True,
+            "BUNSTRIKE_ZIP_REQUIRED": False,
             "SEMISOLID_CLIPS_REQUIRED": True,
             "BLOCK_CLIPS_REQUIRED": True,
             "POST_GAME_ALLOWED": False,
@@ -137,6 +147,8 @@ DIFFICULTY_CONFIGS = [
         weight=0.5,
         config_flags = {
             "ZIP_REQUIRED": True,
+            "BONK_ZIP_REQUIRED": True,
+            "BUNSTRIKE_ZIP_REQUIRED": True,
             "SEMISOLID_CLIPS_REQUIRED": True,
             "BLOCK_CLIPS_REQUIRED": True,
             "POST_GAME_ALLOWED": True,

@@ -231,7 +231,7 @@ ITM & (
 
 {
 "edge": "FOREST_NIGHT_NORTH_EAST -> FOREST_NORTH_HP_UP_ROOM",
-"prereq": "PROLOGUE_TRIGGER & (SLIDING_POWDER | HAMMER_ROLL_ZIP)",
+"prereq": "PROLOGUE_TRIGGER & (SLIDING_POWDER | HAMMER_ROLL_ZIP | (ADV_STUPID & ROLL_BONK_ZIP))",
 }
 
 {
@@ -293,7 +293,7 @@ ITM & DARKNESS & (
 
 {
 "edge": "CAVE_ENTRANCE -> CAVE_COCOA",
-"prereq": "KOTRI_1 & COCOA_1 & CHAPTER_1",
+"prereq": "(KOTRI_1 & COCOA_1 & CHAPTER_1) | BUNSTRIKE_ZIP",
 }
 
 {
@@ -644,6 +644,11 @@ PROLOGUE_TRIGGER & (
 }
 
 {
+"edge": "GRAVEYARD_MAIN -> SKY_ISLAND_MAIN",
+"prereq": "BUNSTRIKE_ZIP & ADV_STUPID",
+}
+
+{
 "edge": "GRAVEYARD_KOTRI -> GRAVEYARD_MAIN",
 "prereq": "NONE",
 }
@@ -680,7 +685,7 @@ PROLOGUE_TRIGGER & (
 
 {
 "edge": "SKY_ISLAND_MAIN -> BEACH_MAIN",
-"prereq": "EXPLOSIVES",
+"prereq": "EXPLOSIVES | (ADV_STUPID & BUNSTRIKE_ZIP & EXPLOSIVES_ENEMY)", // strike zip for lure an enemies, carrot shot
 }
 
 // Halloween
@@ -1052,7 +1057,7 @@ PROLOGUE_TRIGGER & (
 {
 "edge": "PARK_MAIN -> SKY_BRIDGE_SLIDE_AREA",
 // consumables do not work due to screen transition
-"prereq": "ADV_STUPID & SLIDE_ZIP & BUNNY_AMULET",
+"prereq": "ADV_STUPID & ((SLIDE_ZIP & BUNNY_AMULET) | BUNSTRIKE_ZIP)",
 }
 
 {
@@ -1122,7 +1127,7 @@ DARKNESS & (
 
 {
 "edge": "SKY_BRIDGE_DARK_AREA -> SKY_BRIDGE_SLIDE_AREA",
-"prereq": "SLIDE_ZIP | HAMMER_ROLL_ZIP",
+"prereq": "SLIDE_ZIP | HAMMER_ROLL_ZIP | ROLL_BONK_ZIP",
 }
 
 {
@@ -1158,6 +1163,7 @@ DARKNESS & (
         | AIR_DASH
         | (ADV_HARD | (ITM_HARD & BUNNY_AMULET))
     ))
+    | (ADV_STUPID & ROLL_BONK_ZIP & BUNNY_AMULET)
     | (SLIDING_POWDER & EXPLOSIVES)
 )
 ",
@@ -1188,7 +1194,7 @@ DARKNESS & (
 {
 "edge": "SKY_BRIDGE_SLIDE_AREA -> PARK_TOWN_ENTRANCE",
 // technically goes through SKY_BRIDGE_MAIN, but not really important
-"prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP",
+"prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | (ADV_STUPID & ROLL_BONK_ZIP)",
 }
 
 {
@@ -1351,6 +1357,11 @@ DARKNESS & (
 }
 
 {
+"edge": "ICY_SUMMIT_NIXIE -> SNOWLAND_RITA",
+"prereq": "ADV_STUPID & BUNSTRIKE_ZIP & SLIDE_ZIP",
+}
+
+{
 "edge": "SNOWLAND_WEST -> PALACE_WARP_LEVEL_1_2",
 "prereq": "NONE",
 }
@@ -1412,7 +1423,13 @@ DARKNESS & (
 
 {
 "edge": "PALACE_LEVEL_3 -> SNOWLAND_CHRISTMAS_TREE",
-"prereq": "ADV_STUPID & RABI_SLIPPERS & SLIDE_ZIP", // burnout 4-tile zip, 4-tile zip, quick drop
+"prereq": "
+    ADV_STUPID & SLIDE_ZIP & (
+        // burnout 4-tile zip, 4-tile zip, quick drop
+        RABI_SLIPPERS
+        // strike zip from egg spot, zip from oob room, quick drop
+        | BUNSTRIKE_ZIP
+    )",
 }
 
 {
@@ -1673,7 +1690,7 @@ DARKNESS & (
 
 {
 "edge": "RIVERBANK_MAIN_LEVEL1 -> RIVERBANK_LOWER_FOREST_ENTRANCE",
-"prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | (ADV_STUPID & EXPLOSIVES & AIR_DASH_LV3)",
+"prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | (ADV_VHARD & ROLL_BONK_ZIP) | (ADV_STUPID & EXPLOSIVES & AIR_DASH_LV3)",
 }
 
 {
@@ -1883,7 +1900,7 @@ DARKNESS & (
 
 {
 "edge": "EVERNIGHT_WEST_ENTRANCE -> EVERNIGHT_WARP",
-"prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | EXPLOSIVES",
+"prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | ROLL_BONK_ZIP | EXPLOSIVES",
 }
 
 {

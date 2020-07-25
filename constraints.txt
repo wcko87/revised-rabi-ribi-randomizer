@@ -458,8 +458,8 @@
 {
 "item": "HP_UP_PYRAMID_ENTRANCE",
 "from_location": "BEACH_MAIN",
-"entry_prereq": "CARROT_BOMB | (CARROT_SHOOTER & BOOST & ADV_HARD)",
-"exit_prereq": "NONE",
+"entry_prereq": "CARROT_BOMB | (CARROT_SHOOTER & BOOST & ADV_HARD) | (BUNSTRIKE_ZIP & SLIDE_ZIP & ADV_VHARD)",
+"exit_prereq": "EXPLOSIVES | HAMMER_ROLL_ZIP",
 }
 
 {
@@ -564,7 +564,11 @@
 "item": "ATK_TRADE",
 "from_location": "PARK_MAIN",
 "entry_prereq": "EXPLOSIVES",
-"exit_prereq": "NONE",
+"exit_prereq": "EXPLOSIVES",
+
+"alternate_entries": {
+    "PARK_UPPER" : "ADV_VHARD & BUNSTRIKE_ZIP",
+},
 }
 
 {
@@ -584,7 +588,7 @@
 {
 "item": "REGEN_UP_PARK",
 "from_location": "PARK_UPPER",
-"entry_prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP",
+"entry_prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | (ADV_STUPID & ROLL_BONK_ZIP)",
 "exit_prereq": "SLIDING_POWDER",
 }
 
@@ -602,6 +606,7 @@
     (EXPLOSIVES & SLIDING_POWDER)
     | (ADV_VHARD & SLIDE_ZIP & RABI_SLIPPERS) // 5-tile zip
     | (ADV_STUPID & SLIDE_ZIP & (WHIRL_BONK_CANCEL | SLIDE_JUMP_BUNSTRIKE_CANCEL | AIR_JUMP | WALL_JUMP_LV2)) // 2-tile zip
+    | (ADV_VHARD & BUNSTRIKE_ZIP) // 4-tile strike zip
     ",
 "exit_prereq": "(EXPLOSIVES & SLIDING_POWDER) | SLIDE_ZIP | HAMMER_ROLL_ZIP",
 }
@@ -715,7 +720,7 @@
 "item": "REGEN_UP_RAVINE",
 "from_location": "RAVINE_LOWER",
 // cramped 2 tile zip in and out
-"entry_prereq": "EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP & BUNNY_AMULET)",
+"entry_prereq": "EXPLOSIVES | (ADV_STUPID & ((SLIDE_ZIP & BUNNY_AMULET) | BUNSTRIKE_ZIP))",
 "exit_prereq": "EXPLOSIVES | (ADV_STUPID & SLIDE_ZIP)",
 }
 
@@ -1013,7 +1018,7 @@
 {
 "item": "MP_UP_MID_RIVERBANK",
 "from_location": "RIVERBANK_MAIN_LEVEL1",
-"entry_prereq": "EXPLOSIVES_ENEMY",
+"entry_prereq": "EXPLOSIVES_ENEMY | (BUNSTRIKE_ZIP & ADV_VHARD)",
 // only relevant if boost is not obtained
 "exit_prereq": "
     EXPLOSIVES
@@ -1051,8 +1056,12 @@
 {
 "item": "FRAME_CANCEL",
 "from_location": "RIVERBANK_LEVEL3",
-"entry_prereq": "(EXPLOSIVES_ENEMY & SLIDING_POWDER) | SLIDE_ZIP | HAMMER_ROLL_ZIP",
+"entry_prereq": "(EXPLOSIVES_ENEMY & SLIDING_POWDER) | SLIDE_ZIP | HAMMER_ROLL_ZIP | ROLL_BONK_ZIP",
 "exit_prereq": "(CARROT_SHOOTER_ENTRY | EXPLOSIVES) & SLIDING_POWDER",
+
+"alternate_exits" : {
+    "RIVERBANK_LOWER_HEALTH_UP_ROOM" : "BUNSTRIKE_ZIP & ADV_VHARD",
+},
 }
 
 {
@@ -1254,7 +1263,7 @@
 "from_location": "VOLCANIC_MAIN",
 // 1.8 requirements
 "entry_prereq": "(ITM & FIRE_ORB) | CARROT_BOMB | (CARROT_SHOOTER & (BOOST | CHARGE_RING))",
-"exit_prereq": "FIRE_ORB | (RABI_SLIPPERS & AIR_JUMP & WALL_JUMP_LV2)",
+"exit_prereq": "FIRE_ORB | (RABI_SLIPPERS & AIR_JUMP & WALL_JUMP_LV2) | (ADV_STUPID & BUNSTRIKE_ZIP)",
 // 1.75 requirements
 //"entry_prereq": "CARROT_BOMB | (CARROT_SHOOTER & (BOOST | CHARGE_RING))",
 //"exit_prereq": "EXPLOSIVES_ENEMY | (RABI_SLIPPERS & AIR_JUMP & WALL_JUMP_LV2)",
@@ -1309,7 +1318,7 @@
     (SLIDING_POWDER & (
         CARROT_BOMB
         // hammer roll zip oob, then almost blind 2 tile zip
-        | (ADV_STUPID & SLIDE_ZIP & HAMMER_ROLL_ZIP)
+        | (ADV_STUPID & SLIDE_ZIP & (HAMMER_ROLL_ZIP | BUNSTRIKE_ZIP))
     ))
     & (
         (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD)) // 6tile airjump

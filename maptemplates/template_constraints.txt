@@ -431,7 +431,7 @@
 "changes": [
     {
     "edge": "PARK_MAIN -> UPRPRC_BASE",
-    "prereq": "SLIDE_ZIP",
+    "prereq": "SLIDE_ZIP | ROLL_BONK_ZIP",
     }
 ]}
 
@@ -497,7 +497,7 @@
 "changes": [
     {
     "edge": "PARK_MAIN -> UPRPRC_BASE",
-    "prereq": "FIRE_ORB | SLIDE_ZIP",
+    "prereq": "FIRE_ORB | SLIDE_ZIP | ROLL_BONK_ZIP",
     }
 ]}
 
@@ -595,7 +595,7 @@
     }
     {
     "edge": "RIVERBANK_MAIN_LEVEL1 -> RIVERBANK_LOWER_FOREST_ENTRANCE",
-    "prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP",
+    "prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP | (ADV_VHARD & ROLL_BONK_ZIP)",
     }
 ]}
 
@@ -1108,7 +1108,7 @@
 "changes": [
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> AQUARIUM_MID",
-    "prereq": "(EXPLOSIVES_ENEMY & ((WATER_ORB & HAMMER_ROLL_ZIP) | SLIDING_POWDER)) | (ADV_STUPID & WATER_ORB & SLIDE_ZIP)",
+    "prereq": "(EXPLOSIVES_ENEMY & ((WATER_ORB & HAMMER_ROLL_ZIP) | SLIDING_POWDER | (ADV_STUPID & ROLL_BONK_ZIP))) | (ADV_STUPID & WATER_ORB & SLIDE_ZIP)",
     }
     {
     "edge": "AQUARIUM_TOP_ENTRANCE -> AQUARIUM_WEST",

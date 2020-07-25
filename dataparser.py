@@ -25,6 +25,8 @@ OPEN_MODE = 'OPEN_MODE'
 def define_config_flags():
     d = {
         "ZIP_REQUIRED": False,
+        "BONK_ZIP_REQUIRED": False,
+        "BUNSTRIKE_ZIP_REQUIRED": False,
         "SEMISOLID_CLIPS_REQUIRED": False,
         "BLOCK_CLIPS_REQUIRED": True,
         "POST_GAME_ALLOWED": True,
@@ -74,7 +76,7 @@ def define_pseudo_items():
         "BOSS_KEKE_BUNNY": "PLURKWOOD_MAIN",
         "BOSS_RIBBON": "SPECTRAL_WARP",
 
-        "TM_COCOA": "COCOA_1 & KOTRI_1 & CAVE_COCOA",
+        "TM_COCOA": "CHAPTER_1 & COCOA_1 & KOTRI_1 & CAVE_COCOA",
         "TM_ASHURI": "RIVERBANK_LEVEL3 & TOWN_MAIN & SPECTRAL_WEST",
         "TM_RITA": "SNOWLAND_RITA",
         "TM_CICINI": "SPECTRAL_CICINI_ROOM",
@@ -197,6 +199,8 @@ def define_default_expressions(variable_names_set):
     def3 = expr_all({
         "HAMMER_ROLL_ZIP": "ZIP & HAMMER_ROLL_LV3",
         "SLIDE_ZIP": "ZIP & SLIDING_POWDER",
+        "ROLL_BONK_ZIP": "ZIP & BONK_ZIP_REQUIRED & HAMMER_ROLL",
+        "BUNSTRIKE_ZIP": "ZIP & BUNSTRIKE_ZIP_REQUIRED & BUNNY_STRIKE",
         "WHIRL_BONK": "BUNNY_WHIRL & ITM_HARD",
         "WHIRL_BONK_CANCEL": "BUNNY_WHIRL & BUNNY_AMULET & ITM_HARD",
         "SLIDE_JUMP_BUNSTRIKE": "BUNNY_STRIKE & INTERMEDIATE",
