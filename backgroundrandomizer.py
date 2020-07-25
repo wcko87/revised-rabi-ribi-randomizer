@@ -81,6 +81,12 @@ class BackgroundShuffler(object):
             # Fix for early sysint computer bug
             if areaid == 4 and posindex == to_tile_index(17,16): continue
 
+            # Fix for new eggs trigger bug
+            if areaid == 4 and posindex == to_tile_index(14,13): continue
+            if areaid == 4 and posindex == to_tile_index(15,13): continue
+            if areaid == 4 and posindex == to_tile_index(16,13): continue
+            if areaid == 7 and posindex == to_tile_index(9,8): continue
+
             # Fix for bug where you can't enter warps if it has computer room background.
             if allocation[val] == 64:
                 # plurkwood warp from starting forest
