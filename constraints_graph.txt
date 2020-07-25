@@ -1010,12 +1010,12 @@ PROLOGUE_TRIGGER & (
 
 // Park and Sky Bridge
 {
-"edge": "PARK_MAIN -> PARK_KOTRI",
+"edge": "PARK_WARP -> PARK_KOTRI",
 "prereq": "NONE",
 }
 
 {
-"edge": "PARK_KOTRI -> PARK_MAIN",
+"edge": "PARK_KOTRI -> PARK_WARP",
 "prereq": "NONE",
 }
 
@@ -1030,13 +1030,44 @@ PROLOGUE_TRIGGER & (
 }
 
 {
-"edge": "PARK_MAIN -> UPRPRC_BASE",
+"edge": "PARK_WARP -> PARK_MAIN",
+"prereq": "NONE",
+}
+
+{
+"edge": "PARK_MAIN -> PARK_WARP",
 "prereq": "NONE",
 }
 
 {
 "edge": "UPRPRC_BASE -> PARK_MAIN",
 "prereq": "NONE",
+}
+
+{
+"edge": "PARK_MAIN -> UPRPRC_BASE",
+"prereq": "NONE",
+}
+
+{
+"edge": "UPRPRC_BASE -> UPRPRC_LOWER",
+"prereq": "NONE",
+}
+
+{
+"edge": "UPRPRC_LOWER -> PARK_WARP",
+"prereq": "NONE",
+}
+
+{
+"edge": "PARK_WARP -> UPRPRC_LOWER",
+"prereq": "NONE",
+}
+
+{
+"edge": "UPRPRC_LOWER -> UPRPRC_BASE",
+// reverse uprprc
+"prereq": "ADV_VHARD & SLIDE_JUMP_BUNSTRIKE_CANCEL & RABI_SLIPPERS & AIR_JUMP",
 }
 
 {

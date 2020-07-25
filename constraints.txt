@@ -580,7 +580,7 @@
 
 {
 "item": "RABI_SLIPPERS",
-"from_location": "PARK_MAIN",
+"from_location": "UPRPRC_LOWER",
 "entry_prereq": "NONE",
 "exit_prereq": "NONE",
 }

@@ -432,6 +432,10 @@
     {
     "edge": "PARK_MAIN -> UPRPRC_BASE",
     "prereq": "SLIDE_ZIP | ROLL_BONK_ZIP",
+    }    
+    {
+    "edge": "UPRPRC_BASE -> PARK_MAIN",
+    "prereq": "SLIDING_POWDER",
     }
 ]}
 
@@ -499,6 +503,10 @@
     "edge": "PARK_MAIN -> UPRPRC_BASE",
     "prereq": "FIRE_ORB | SLIDE_ZIP | ROLL_BONK_ZIP",
     }
+    {
+    "edge": "UPRPRC_BASE -> PARK_MAIN",
+    "prereq": "FIRE_ORB | SLIDING_POWDER",
+    }
 ]}
 
 {
@@ -564,6 +572,10 @@
     {
     "edge": "PARK_MAIN -> UPRPRC_BASE",
     "prereq": "EXPLOSIVES_ENEMY | BUNNY_WHIRL | SLIDE_ZIP",
+    }
+    {
+    "edge": "UPRPRC_BASE -> PARK_MAIN",
+    "prereq": "BUNNY_WHIRL | SLIDING_POWDER",
     }
 ]}
 
@@ -919,7 +931,7 @@
 "weight": 30,
 "changes": [
     {
-    "edge": "PARK_MAIN -> PARK_KOTRI",
+    "edge": "PARK_WARP -> PARK_KOTRI",
     "prereq": "DOWNDRILL_SEMISOLID_CLIP",
     }
 ]}
@@ -953,7 +965,7 @@
 "weight": 10,
 "changes": [
     {
-    "edge": "PARK_MAIN -> UPRPRC_BASE",
+    "edge": "PARK_WARP -> UPRPRC_LOWER",
     "prereq": "RABI_SLIPPERS | AIR_JUMP | AIR_DASH | SLIDE_JUMP_BUNSTRIKE | SLIDE_ZIP | (AMULET_FOOD & ADV_VHARD)",
     }
 ]}
