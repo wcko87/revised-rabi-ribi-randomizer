@@ -942,12 +942,8 @@
     "edge": "FOREST_START -> FOREST_EAST_ABOVE_SPRING",
     "prereq":
         "AIR_JUMP | BUNNY_STRIKE | AIR_DASH_LV3 | (ADV_VHARD & SLIDE_ZIP)
-        | (ADV_STUPID & (
-            // quick drop, item, whirl bonk off falling bunny
-            (WHIRL_BONK & CONSUMABLE_USE)
-            // quick drop, amulet, air dash, wall kick, amulet
-            | (AIR_DASH & 2_AMULET_FOOD)
-        ))
+        | (ADV_STUPID & WHIRL_BONK & CONSUMABLE_USE) // quick drop, item, whirl bonk off falling bunny
+        | (ADV_VHARD & AIR_DASH) // buffered launch from ribbon block ledge, airdash 
         ",
     }
 ]}
