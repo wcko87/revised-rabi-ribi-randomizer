@@ -103,7 +103,7 @@
 "item": "WALL_JUMP",
 "from_location": "SPECTRAL_MID",
 "entry_prereq": "NONE",
-"exit_prereq": "RABI_SLIPPERS | AIR_JUMP | WALL_JUMP | (ITM_HARD & (AIR_DASH | SLIDING_POWDER)) | (SPEED5 & ADV_STUPID)",
+"exit_prereq": "RABI_SLIPPERS | AIR_JUMP | WALL_JUMP | (ITM_HARD & (AIR_DASH | SLIDING_POWDER)) | (ADV_STUPID & (SPEED3 | BUNNY_AMULET))",
 }
 
 {
@@ -261,6 +261,7 @@
         | SLIDE_JUMP_BUNSTRIKE_CANCEL
         | (ITM_HARD & (WALL_JUMP_LV2 | AIR_DASH))
         | (RABI_SLIPPERS & (ADV_VHARD | (ADV_HARD & SPEED3)))
+        | (ADV_VHARD & PROLOGUE_TRIGGER & SLIDING_POWDER & BUNNY_AMULET)
         | (ADV_STUPID & PROLOGUE_TRIGGER & SPEED3)
         ",
     },
@@ -1020,8 +1021,8 @@
     | SLIDE_ZIP
     | AIR_JUMP
     | WALL_JUMP_LV2
-    | (SLIDE_JUMP_BUNSTRIKE_CANCEL & (RABI_SLIPPERS | SPEED1))
-    | (RABI_SLIPPERS & ADV_HARD & (SPEED2 | (SPEED1 & WALL_JUMP)))
+    | (SLIDE_JUMP_BUNSTRIKE_CANCEL & (RABI_SLIPPERS | SPEED1 | AIR_DASH | V_HARD))
+    | (RABI_SLIPPERS & ADV_HARD & (AIR_DASH | SPEED2 | (SPEED1 & WALL_JUMP)))
 ",
 }
 
@@ -1115,7 +1116,7 @@
 {
 "item": "ATK_UP_EVERNIGHT_UPRPRC",
 "from_location": "EVERNIGHT_NORTHWEST",
-"entry_prereq": "SLIDING_POWDER & (EXPLOSIVES | DOWNDRILL_SEMISOLID_CLIP)",
+"entry_prereq": "(SLIDING_POWDER & (EXPLOSIVES | DOWNDRILL_SEMISOLID_CLIP)) | (ADV_STUPID & BUNNY_WHIRL & DOWNDRILL_SEMISOLID_CLIP)",
 "exit_prereq": "NONE",
 }
 
@@ -1314,7 +1315,7 @@
         (AIR_JUMP & (RABI_SLIPPERS | ITM_HARD)) // 6tile airjump
         | (AIR_DASH_LV3 & ITM_HARD) // 4tile walljump, some other strange jumps
         | (AIR_DASH & ADV_VHARD) // (needs slide) 4tile walljump + weird jump at end
-        | (WALL_JUMP_LV2 & (
+        | (WALL_JUMP & (
             (RABI_SLIPPERS & ADV_VHARD) // buffered wall launch
             | ADV_STUPID // (needs slide) two slide bonks, one buffered wall launch
         ))
@@ -1400,6 +1401,7 @@
             | SLIDE_JUMP_BUNSTRIKE_CANCEL
             | (ITM_HARD & (WALL_JUMP_LV2 | AIR_DASH))
             | (RABI_SLIPPERS & (ADV_VHARD | (ADV_HARD & SPEED3)))
+            | (ADV_VHARD & PROLOGUE_TRIGGER & SLIDING_POWDER & BUNNY_AMULET)
             | (ADV_STUPID & PROLOGUE_TRIGGER & SPEED3)
         )
         ",
@@ -1606,6 +1608,7 @@
         | SLIDING_POWDER // slide bonk off stone
     ))
     | (ADV_STUPID & WALL_JUMP & BUNNY_AMULET & 2_AMULET_FOOD)
+    | (ADV_STUPID & SPEED2 & 3_AMULET_FOOD)
 ",
 "exit_prereq": "NONE",
 }

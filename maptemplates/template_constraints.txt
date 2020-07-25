@@ -856,11 +856,13 @@
     }
     {
     "edge": "FOREST_NIGHT_WEST -> FOREST_NIGHT_NORTH_EAST",
-    "prereq": "AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE",
+    "prereq": "AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE | (AIR_DASH & ITM_VHARD) | ADV_STUPID",
     }
     {
     "edge": "FOREST_NIGHT_WEST -> FOREST_NIGHT_TOXIC_STRIKE",
-    "prereq": "AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE",
+    "prereq": "current & (
+        AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE | (AIR_DASH & ITM_VHARD) | ADV_STUPID
+        )",
     }
 ]}
 
@@ -905,7 +907,10 @@
 "changes": [
     {
     "edge": "GRAVEYARD_MAIN -> GRAVEYARD_KOTRI",
-    "prereq": "WALL_JUMP | RABI_SLIPPERS | AIR_JUMP | SLIDE_JUMP_BUNSTRIKE_CANCEL | WHIRL_BONK",
+    "prereq": "
+        WALL_JUMP | RABI_SLIPPERS | AIR_JUMP | SLIDE_JUMP_BUNSTRIKE_CANCEL | WHIRL_BONK
+        | (ADV_VHARD & SLIDING_POWDER)
+        ",
     }
 ]}
 
@@ -935,7 +940,15 @@
 "changes": [
     {
     "edge": "FOREST_START -> FOREST_EAST_ABOVE_SPRING",
-    "prereq": "AIR_JUMP | BUNNY_STRIKE | AIR_DASH_LV3 | (ADV_STUPID & BUNNY_WHIRL & CONSUMABLE_USE)",
+    "prereq":
+        "AIR_JUMP | BUNNY_STRIKE | AIR_DASH_LV3 | (ADV_VHARD & SLIDE_ZIP)
+        | (ADV_STUPID & (
+            // quick drop, item, whirl bonk off falling bunny
+            (WHIRL_BONK & CONSUMABLE_USE)
+            // quick drop, amulet, air dash, wall kick, amulet
+            | (AIR_DASH & 2_AMULET_FOOD)
+        ))
+        ",
     }
 ]}
 
@@ -959,6 +972,11 @@
             (ADV_HARD & (
                 (AIR_JUMP & (WALL_JUMP_LV2 | HAMMER_ROLL | RABI_SLIPPERS | SLIDE_JUMP_BUNSTRIKE_CANCEL | (SLIDING_POWDER & V_HARD)))
                 | (WHIRL_BONK_CANCEL & (V_HARD | WALL_JUMP_LV2))
+            ))
+            | (ADV_VHARD & AIR_DASH & (SLIDE_JUMP_BUNSTRIKE_CANCEL | AIR_JUMP))
+            | (ADV_STUPID & (
+                (AMULET_FOOD & (AIR_DASH | AIR_JUMP))
+                | (BUNNY_STRIKE & BUNNY_AMULET & 2_AMULET_FOOD)
             ))
         )",
     }
@@ -1420,6 +1438,7 @@
         | (ADV_HARD & WALL_JUMP_LV2) // turn off rabi slippers and do a 4-tile corner.
         | (ADV_VHARD & RABI_SLIPPERS & WALL_JUMP & (SPEED1 | STUPID))
         | (ADV_STUPID & SLIDING_POWDER & WALL_JUMP)
+        | (ADV_STUPID & RABI_SLIPPERS & SLIDE_JUMP_BUNSTRIKE_CANCEL) // bunstrike, amulet, wimpy, bounce
     )",
     }
 ]}
