@@ -1832,20 +1832,21 @@ DARKNESS & (
         | AIR_JUMP
         | (ITM_HARD & (SLIDING_POWDER | AIR_DASH | SPEED1))
         | (V_HARD & WHIRL_BONK)
+        | (ADV_STUPID & AMULET_FOOD)
     ))
     | (AIR_JUMP & (
         RABI_SLIPPERS
         | SLIDE_JUMP_BUNSTRIKE_CANCEL
         | (ITM_HARD & HAMMER_ROLL)
-        | (ADV_STUPID & (
-            SLIDING_POWDER  // slide bonk off bunny
-            | WALL_JUMP_LV2  // buffered wimpy
-        ))
         | (ADV_VHARD & AIR_DASH_LV3)  // airdash from step
+        | (ADV_STUPID & SLIDING_POWDER) // slide bonk off bunny
     ))
-    | (ADV_STUPID & RABI_SLIPPERS & WALL_JUMP_LV2)  // extremely tight
     | WHIRL_BONK_CANCEL
     | (ADV_STUPID & HAMMER_ROLL)
+    | (ADV_VHARD & WALL_JUMP_LV2 & (
+        (SLIDING_POWDER & (RABI_SLIPPERS | STUPID))
+        | ((SPEED5 | STUPID) & (RABI_SLIPPERS | AIR_JUMP))
+    ))
 ",
 }
 

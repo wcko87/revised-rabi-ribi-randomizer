@@ -492,8 +492,15 @@
 {
 "item": "PURE_LOVE",
 "from_location": "SKY_ISLAND_UPPER",
-"entry_prereq": "EXPLOSIVES & SLIDING_POWDER",
-"exit_prereq": "SLIDING_POWDER",
+"entry_prereq": "
+    EXPLOSIVES & (
+        SLIDING_POWDER
+        | (ADV_STUPID & HAMMER_ROLL_ZIP & AIR_JUMP & MANY_AMULET_FOOD & (
+            (WALL_JUMP_LV2 & (RABI_SLIPPERS | AIR_DASH))
+            | (RABI_SLIPPERS & AIR_DASH_LV3)
+        ))
+    )",
+"exit_prereq": "SLIDING_POWDER | HAMMER_ROLL_ZIP",
 }
 
 {
