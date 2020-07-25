@@ -756,7 +756,7 @@
 {
 "item": "ATK_UP_SNOWLAND",
 "from_location": "SNOWLAND_WEST",
-"entry_prereq": "EXPLOSIVES_ENEMY & (SLIDING_POWDER | HAMMER_ROLL | BLOCK_CLIP)",
+"entry_prereq": "EXPLOSIVES_ENEMY & (SLIDING_POWDER | HAMMER_ROLL | (ADV_HARD & BLOCK_CLIP))",
 "exit_prereq": "NONE",
 }
 
@@ -1195,7 +1195,7 @@
     "LAB_ENTRANCE": "EXPLOSIVES_ENEMY & HAMMER_ROLL_ZIP",
 },
 "alternate_exits": {
-    "LAB_EAST_PACK_UP_ROOM": "ADV & EXPLOSIVES_ENEMY & SLIDE_ZIP",
+    "LAB_EAST_PACK_UP_ROOM": "ADV_VHARD & EXPLOSIVES_ENEMY & SLIDE_ZIP",
 },
 }
 
@@ -1245,7 +1245,7 @@
 "item": "FIRE_ORB",
 "from_location": "VOLCANIC_MAIN",
 // 1.8 requirements
-"entry_prereq": "FIRE_ORB | CARROT_BOMB | (CARROT_SHOOTER & (BOOST | CHARGE_RING))",
+"entry_prereq": "(ITM & FIRE_ORB) | CARROT_BOMB | (CARROT_SHOOTER & (BOOST | CHARGE_RING))",
 "exit_prereq": "FIRE_ORB | (RABI_SLIPPERS & AIR_JUMP & WALL_JUMP_LV2)",
 // 1.75 requirements
 //"entry_prereq": "CARROT_BOMB | (CARROT_SHOOTER & (BOOST | CHARGE_RING))",
