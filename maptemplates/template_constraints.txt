@@ -838,14 +838,16 @@
 "changes": [
     {
     "edge": "FOREST_NIGHT_TOXIC_STRIKE -> FOREST_NIGHT_WEST",
-    "prereq": "AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE | CARROT_BOMB | (AIR_DASH & ITM_HARD) |
-        (CARROT_SHOOTER & (BOOST | CHARGE_RING | AMULET_FOOD))",
+    "prereq": "current & (
+        AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE | CARROT_BOMB | (AIR_DASH & ITM_HARD) |
+        (CARROT_SHOOTER & (BOOST | CHARGE_RING | ADV_HARD | (AMULET_FOOD & ITM_HARD)))
+        )",
     }
     {
     "edge": "FOREST_NIGHT_NORTH_EAST -> FOREST_NIGHT_WEST",
     "prereq": "current & (
         AIR_JUMP | AIR_DASH_LV3 | BUNNY_STRIKE | CARROT_BOMB | (AIR_DASH & ITM_HARD) |
-        (CARROT_SHOOTER & (BOOST | CHARGE_RING | AMULET_FOOD))
+        (CARROT_SHOOTER & (BOOST | CHARGE_RING | ADV_HARD | (AMULET_FOOD & ITM_HARD)))
         )",
     }
     {

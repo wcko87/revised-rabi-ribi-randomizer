@@ -157,11 +157,19 @@
 {
 "item": "HP_UP_FOREST_POST_COCOA",
 "from_location": "FOREST_START",
-"entry_prereq": "PIKO_HAMMER",
-"exit_prereq": "PIKO_HAMMER | EXPLOSIVES_ENEMY",
+"entry_prereq": "PIKO_HAMMER | EXPLOSIVES | (CARROT_SHOOTER & ADV_VHARD)",
+"exit_prereq": "PIKO_HAMMER | EXPLOSIVES | (CHARGE_CARROT_SHOOTER_ENTRY & ADV_HARD) | (CARROT_SHOOTER_ENTRY & ADV_VHARD)",
 
 "alternate_entries": {
     "FOREST_COCOA_ROOM": "EXPLOSIVES_ENEMY",
+    },
+
+"alternate_exits": {
+    // only relevant if boost is not obtained
+    "FOREST_COCOA_ROOM": "
+        CARROT_SHOOTER_ENTRY & (
+            AIR_JUMP | (ITM & RABI_SLIPPERS & WALL_JUMP & (SPEED1 | HARD))
+        )",
     },
 }
 
@@ -325,7 +333,7 @@
 "entry_prereq": "
     // Getting onto the ledge
     (AIR_JUMP | AIR_DASH | (ITM_HARD & (AMULET_FOOD | BUNNY_STRIKE)))
-    & (CARROT_BOMB | BLOCK_CLIP)
+    & (EXPLOSIVES | BLOCK_CLIP)
 ",
 "exit_prereq": "AIR_JUMP | SLIDE_JUMP_BUNSTRIKE_CANCEL",
 
@@ -1001,6 +1009,7 @@
 // only relevant if boost is not obtained
 "exit_prereq": "
     EXPLOSIVES
+    | (CHARGE_CARROT_SHOOTER_ENTRY & ADV_HARD)
     | SLIDE_ZIP
     | AIR_JUMP
     | WALL_JUMP_LV2
@@ -1018,6 +1027,10 @@
     | (EXPLOSIVES & RIVERBANK_LOWER_HEALTH_UP_ROOM & SLIDING_POWDER)
 ",
 "exit_prereq": "NONE",
+
+"alternate_entries": {
+    "RIVERBANK_LOWER_HEALTH_UP_ROOM": "SLIDING_POWDER & CARROT_SHOOTER & BOOST & ADV_HARD",
+},
 }
 
 {
@@ -1030,8 +1043,8 @@
 {
 "item": "FRAME_CANCEL",
 "from_location": "RIVERBANK_LEVEL3",
-"entry_prereq": " EXPLOSIVES_ENEMY & (SLIDING_POWDER | HAMMER_ROLL_ZIP)",
-"exit_prereq": "(CARROT_BOMB_ENTRY | CARROT_SHOOTER_ENTRY) & SLIDING_POWDER",
+"entry_prereq": "(EXPLOSIVES_ENEMY & SLIDING_POWDER) | SLIDE_ZIP | HAMMER_ROLL_ZIP",
+"exit_prereq": "(CARROT_SHOOTER_ENTRY | EXPLOSIVES) & SLIDING_POWDER",
 }
 
 {
