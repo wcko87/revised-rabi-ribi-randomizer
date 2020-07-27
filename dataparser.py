@@ -25,6 +25,8 @@ OPEN_MODE = 'OPEN_MODE'
 def define_config_flags():
     d = {
         "ZIP_REQUIRED": False,
+        "BONK_ZIP_REQUIRED": False,
+        "BUNSTRIKE_ZIP_REQUIRED": False,
         "SEMISOLID_CLIPS_REQUIRED": False,
         "BLOCK_CLIPS_REQUIRED": True,
         "POST_GAME_ALLOWED": True,
@@ -66,6 +68,7 @@ def define_pseudo_items():
         "PIKO_HAMMER_LEVELED": "PIKO_HAMMER",
         "CARROT_BOMB_ENTRY": "CARROT_BOMB",
         "CARROT_SHOOTER_ENTRY": "CARROT_SHOOTER",
+        "CHARGE_CARROT_SHOOTER_ENTRY" : "CARROT_SHOOTER & CHARGE_RING",
 
         "COCOA_1": "FOREST_COCOA_ROOM",
         "KOTRI_1": "PARK_KOTRI",
@@ -73,18 +76,18 @@ def define_pseudo_items():
         "BOSS_KEKE_BUNNY": "PLURKWOOD_MAIN",
         "BOSS_RIBBON": "SPECTRAL_WARP",
 
-        "TM_COCOA": "COCOA_1 & KOTRI_1 & CAVE_COCOA",
+        "TM_COCOA": "CHAPTER_1 & COCOA_1 & KOTRI_1 & CAVE_COCOA",
         "TM_ASHURI": "RIVERBANK_LEVEL3 & TOWN_MAIN & SPECTRAL_WEST",
         "TM_RITA": "SNOWLAND_RITA",
         "TM_CICINI": "SPECTRAL_CICINI_ROOM",
         "TM_SAYA": "EVERNIGHT_SAYA & EVERNIGHT_EAST_OF_WARP",
         "TM_SYARO": "SYSTEM_INTERIOR_MAIN",
         "TM_PANDORA": "PYRAMID_MAIN",
-        "TM_NIEVE": "PALACE_LEVEL_5 & ICY_SUMMIT_MAIN",
-        "TM_NIXIE": "PALACE_LEVEL_5 & ICY_SUMMIT_MAIN",
+        "TM_NIEVE": "PALACE_LEVEL_5 & ICY_SUMMIT_NIXIE",
+        "TM_NIXIE": "PALACE_LEVEL_5 & ICY_SUMMIT_NIXIE",
         "TM_ARURAUNE": "FOREST_NIGHT_WEST",
         "TM_SEANA": "TM_VANILLA & TM_CHOCOLATE & TM_CICINI & TM_SYARO & TM_NIEVE & TM_NIXIE & AQUARIUM_EAST & PARK_TOWN_ENTRANCE",
-        "TM_LILITH": "SKY_ISLAND_MAIN",
+        "TM_LILITH": "SKY_ISLAND_MAIN & TM_CICINI",
         "TM_VANILLA": "SKY_BRIDGE_EAST_LOWER",
         "TM_CHOCOLATE": "CHAPTER_1 & RAVINE_CHOCOLATE",
         "TM_KOTRI": "GRAVEYARD_KOTRI & VOLCANIC_MAIN",
@@ -129,7 +132,7 @@ def define_alternate_conditions(settings, variable_names_set, default_expression
         "RUMI_CAKE": "TOWN_SHOP",
         #"COCOA_BOMB": "TM_COCOA & TOWN_MAIN & 3TM", # Discounting this because you can't buy cocoa bombs from cocoa in IMP
     }
-    if not settings.shuffle_map_transitions:
+    if not settings.shuffle_gift_items:
         d.update({
             "SPEED_BOOST": "TOWN_SHOP",
             "BUNNY_STRIKE": "SLIDING_POWDER & TOWN_SHOP",
@@ -196,6 +199,8 @@ def define_default_expressions(variable_names_set):
     def3 = expr_all({
         "HAMMER_ROLL_ZIP": "ZIP & HAMMER_ROLL_LV3",
         "SLIDE_ZIP": "ZIP & SLIDING_POWDER",
+        "ROLL_BONK_ZIP": "ZIP & BONK_ZIP_REQUIRED & HAMMER_ROLL",
+        "BUNSTRIKE_ZIP": "ZIP & BUNSTRIKE_ZIP_REQUIRED & BUNNY_STRIKE",
         "WHIRL_BONK": "BUNNY_WHIRL & ITM_HARD",
         "WHIRL_BONK_CANCEL": "BUNNY_WHIRL & BUNNY_AMULET & ITM_HARD",
         "SLIDE_JUMP_BUNSTRIKE": "BUNNY_STRIKE & INTERMEDIATE",
