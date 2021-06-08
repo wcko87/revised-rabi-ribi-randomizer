@@ -89,6 +89,8 @@ def define_pseudo_items():
         "TM_CHOCOLATE": "CHAPTER_1 & RAVINE_CHOCOLATE",
         "TM_KOTRI": "GRAVEYARD_KOTRI & VOLCANIC_MAIN",
         "TM_KEKE_BUNNY": "BOSS_KEKE_BUNNY & PLURKWOOD_MAIN & TOWN_MAIN",
+        "TM_MIRIAM": "HALL_OF_MEMORIES",
+        "TM_RUMI": "FORGOTTEN_CAVE_2",
 
         "2TM": lambda v: count_town_members(v) >= 2,
         "3TM": lambda v: count_town_members(v) >= 3,
@@ -105,6 +107,9 @@ def define_pseudo_items():
         "CHAPTER_3": "TOWN_MAIN & 4TM",
         "CHAPTER_4": "TOWN_MAIN & 7TM",
         "CHAPTER_5": "TOWN_MAIN & 10TM",
+        "CHAPTER_6": "CHAPTER_5",
+        "CHAPTER_7": "TM_RUMI",
+        "15TM": lambda v: count_town_members_irisu(v) == 15,
 
         "CONSUMABLE_USE": "ITEM_MENU & (RUMI_DONUT | RUMI_CAKE | COCOA_BOMB | GOLD_CARROT)",
         "AMULET_FOOD": lambda v : enough_amu_food(v, 1),
@@ -226,6 +231,10 @@ def get_default_areaids():
 TOWN_MEMBERS = ('TM_COCOA','TM_ASHURI','TM_RITA','TM_CICINI','TM_SAYA','TM_SYARO','TM_PANDORA','TM_NIEVE','TM_NIXIE','TM_ARURAUNE','TM_SEANA','TM_LILITH','TM_VANILLA','TM_CHOCOLATE','TM_KOTRI','TM_KEKE_BUNNY',)
 def count_town_members(variables):
     return sum(1 for tm in TOWN_MEMBERS if variables[tm])
+
+TOWN_MEMBERS_IRISU = ('TM_COCOA','TM_ASHURI','TM_RITA','TM_CICINI','TM_SAYA','TM_SYARO','TM_PANDORA','TM_NIEVE','TM_NIXIE','TM_ARURAUNE','TM_SEANA','TM_LILITH','TM_VANILLA','TM_CHOCOLATE','TM_KOTRI',)
+def count_town_members_irisu(variables):
+    return sum(1 for tm in TOWN_MEMBERS_IRISU if variables[tm])
 
 MAGIC_TYPES = ('SUNNY_BEAM','CHAOS_ROD','HEALING_STAFF','EXPLODE_SHOT','CARROT_SHOOTER')
 def count_magic_types(variables):
